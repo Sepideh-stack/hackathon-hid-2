@@ -1,0 +1,32 @@
+[
+  {
+    "id": "acc-001",
+    "name": "Nordea Bank",
+    "industry": "Finance",
+    "region": "Nordics"
+  },
+  {
+    "id": "acc-002",
+    "name": "Volvo Group",
+    "industry": "Automotive",
+    "region": "Nordics"
+  },
+  {
+    "id": "acc-003",
+    "name": "Siemens AG",
+    "industry": "Manufacturing",
+    "region": "DACH"
+  },
+  {
+    "id": "acc-004",
+    "name": "NHS Digital",
+    "industry": "Healthcare",
+    "region": "UK"
+  },
+  {
+    "id": "acc-005",
+    "name": "Airbus SE",
+    "industry": "Aerospace",
+    "region": "EU"
+  }
+]

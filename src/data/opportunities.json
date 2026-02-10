@@ -1,0 +1,66 @@
+[
+  {
+    "id": "opp-001",
+    "accountId": "acc-001",
+    "name": "Nordea HQ Visitor Management",
+    "product": "PIAM Visitor Management",
+    "stage": "Negotiation",
+    "value": 180000
+  },
+  {
+    "id": "opp-002",
+    "accountId": "acc-001",
+    "name": "Nordea PKI Rollout",
+    "product": "PKI-as-a-Service",
+    "stage": "Prospecting",
+    "value": 95000
+  },
+  {
+    "id": "opp-003",
+    "accountId": "acc-002",
+    "name": "Volvo Factory Access Control",
+    "product": "PIAM Visitor Management",
+    "stage": "Qualification",
+    "value": 250000
+  },
+  {
+    "id": "opp-004",
+    "accountId": "acc-003",
+    "name": "Siemens Campus Security Upgrade",
+    "product": "PIAM Visitor Management",
+    "stage": "Proposal",
+    "value": 320000
+  },
+  {
+    "id": "opp-005",
+    "accountId": "acc-003",
+    "name": "Siemens Device Certificate Management",
+    "product": "PKI-as-a-Service",
+    "stage": "Negotiation",
+    "value": 145000
+  },
+  {
+    "id": "opp-006",
+    "accountId": "acc-004",
+    "name": "NHS Visitor & Contractor Management",
+    "product": "PIAM Visitor Management",
+    "stage": "Prospecting",
+    "value": 200000
+  },
+  {
+    "id": "opp-007",
+    "accountId": "acc-005",
+    "name": "Airbus Supplier Access Platform",
+    "product": "PIAM Visitor Management",
+    "stage": "Qualification",
+    "value": 410000
+  },
+  {
+    "id": "opp-008",
+    "accountId": "acc-005",
+    "name": "Airbus PKI Infrastructure",
+    "product": "PKI-as-a-Service",
+    "stage": "Proposal",
+    "value": 275000
+  }
+]
