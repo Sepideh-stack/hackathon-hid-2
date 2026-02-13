@@ -60,23 +60,35 @@ export default function VocDashboardPage() {
     setExpandedTheme(expandedTheme === key ? null : key);
   };
 
-  if (!vocData) return <div className="text-slate-500">Loading...</div>;
+  if (!vocData) {
+    return (
+      <div className="space-y-3">
+        <div className="h-7 w-64 rounded-lg skeleton" />
+        <div className="h-4 w-96 max-w-full rounded-lg skeleton" />
+        <div className="h-24 w-full rounded-xl skeleton" />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="h-72 rounded-xl skeleton" />
+          <div className="h-72 rounded-xl skeleton" />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-slate-900">Voice of Customer Dashboard</h1>
-        <p className="text-slate-500 mt-1">Aggregated themes and competitor insights across {vocData.totalMeetings} meetings.</p>
+        <h1 className="text-2xl font-bold text-slate-900 dark:text-[color:var(--foreground)] animate-fade-in-up">Voice of Customer Dashboard</h1>
+        <p className="text-slate-500 dark:text-[color:var(--muted-foreground)] mt-1 animate-fade-in-up [animation-delay:80ms]">Aggregated themes and competitor insights across {vocData.totalMeetings} meetings.</p>
       </div>
 
       {/* Filters */}
-      <div className="bg-white border border-slate-200 rounded-xl p-4 mb-8 flex flex-wrap gap-4 items-end">
+      <div className="bg-white dark:bg-[color:var(--card)] border border-slate-200 dark:border-[color:var(--border)] rounded-xl p-4 mb-8 flex flex-wrap gap-4 items-end animate-fade-in-up [animation-delay:140ms]">
         <div>
           <label className="block text-xs font-medium text-slate-500 mb-1">Product</label>
           <select
             value={productId}
             onChange={e => setProductId(e.target.value)}
-            className="border border-slate-300 rounded-lg px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="border border-slate-300 dark:border-[color:var(--border)] rounded-lg px-3 py-2 text-sm bg-white dark:bg-[color:var(--card)] text-slate-900 dark:text-[color:var(--foreground)] focus:outline-none focus:ring-2 focus:ring-purple-500"
           >
             <option value="">All Products</option>
             {products.map(p => (
@@ -89,7 +101,7 @@ export default function VocDashboardPage() {
           <select
             value={region}
             onChange={e => setRegion(e.target.value)}
-            className="border border-slate-300 rounded-lg px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="border border-slate-300 dark:border-[color:var(--border)] rounded-lg px-3 py-2 text-sm bg-white dark:bg-[color:var(--card)] text-slate-900 dark:text-[color:var(--foreground)] focus:outline-none focus:ring-2 focus:ring-purple-500"
           >
             <option value="">All Regions</option>
             {regions.map(r => (
@@ -102,7 +114,7 @@ export default function VocDashboardPage() {
           <select
             value={stage}
             onChange={e => setStage(e.target.value)}
-            className="border border-slate-300 rounded-lg px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="border border-slate-300 dark:border-[color:var(--border)] rounded-lg px-3 py-2 text-sm bg-white dark:bg-[color:var(--card)] text-slate-900 dark:text-[color:var(--foreground)] focus:outline-none focus:ring-2 focus:ring-purple-500"
           >
             <option value="">All Stages</option>
             {stages.map(s => (
@@ -116,7 +128,7 @@ export default function VocDashboardPage() {
             type="date"
             value={dateFrom}
             onChange={e => setDateFrom(e.target.value)}
-            className="border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="border border-slate-300 dark:border-[color:var(--border)] rounded-lg px-3 py-2 text-sm bg-white dark:bg-[color:var(--card)] text-slate-900 dark:text-[color:var(--foreground)] focus:outline-none focus:ring-2 focus:ring-purple-500"
           />
         </div>
         <div>
@@ -125,38 +137,38 @@ export default function VocDashboardPage() {
             type="date"
             value={dateTo}
             onChange={e => setDateTo(e.target.value)}
-            className="border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="border border-slate-300 dark:border-[color:var(--border)] rounded-lg px-3 py-2 text-sm bg-white dark:bg-[color:var(--card)] text-slate-900 dark:text-[color:var(--foreground)] focus:outline-none focus:ring-2 focus:ring-purple-500"
           />
         </div>
         <button
           onClick={handleGenerateSummary}
           disabled={summaryLoading}
-          className="px-4 py-2 bg-purple-600 text-white rounded-lg text-sm font-medium hover:bg-purple-700 transition-colors disabled:opacity-50"
+          className="px-4 py-2 bg-purple-600 text-white rounded-lg text-sm font-medium hover:bg-purple-700 transition-colors disabled:opacity-50 active:scale-[0.98]"
         >
           {summaryLoading ? "Generating..." : "Generate VoC Summary"}
         </button>
       </div>
 
       {vocSummary && (
-        <div className="bg-purple-50 border border-purple-200 rounded-xl p-6 mb-8">
+        <div className="bg-purple-50 dark:bg-[color:var(--accent-soft)] border border-purple-200 dark:border-[color:var(--border)] rounded-xl p-6 mb-8 animate-slide-down">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="font-semibold text-purple-900">VoC Executive Summary</h2>
+            <h2 className="font-semibold text-purple-900 dark:text-[color:var(--foreground)]">VoC Executive Summary</h2>
             <button
               onClick={() => navigator.clipboard.writeText(vocSummary)}
-              className="text-xs text-purple-600 hover:text-purple-800"
+              className="text-xs text-purple-600 hover:text-purple-800 dark:text-[color:var(--accent)] dark:hover:text-[color:var(--ring)]"
             >
               Copy to clipboard
             </button>
           </div>
-          <div className="text-sm text-purple-900 whitespace-pre-wrap">{vocSummary}</div>
+          <div className="text-sm text-purple-900 dark:text-[color:var(--muted-foreground)] whitespace-pre-wrap">{vocSummary}</div>
         </div>
       )}
 
       {/* Dashboard grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Pain Points */}
-        <div className="bg-white border border-slate-200 rounded-xl p-6">
-          <h2 className="font-semibold text-slate-900 mb-4 flex items-center gap-2">
+        <div className="bg-white dark:bg-[color:var(--card)] border border-slate-200 dark:border-[color:var(--border)] rounded-xl p-6 animate-fade-in-up">
+          <h2 className="font-semibold text-slate-900 dark:text-[color:var(--card-foreground)] mb-4 flex items-center gap-2">
             <span className="w-3 h-3 bg-red-500 rounded-full" />
             Top Pain Points
           </h2>
@@ -168,11 +180,11 @@ export default function VocDashboardPage() {
                 <div key={i}>
                   <button
                     onClick={() => toggleTheme(`pp-${i}`)}
-                    className="w-full text-left flex items-center justify-between p-2 rounded-lg hover:bg-slate-50 transition-colors"
+                    className="w-full text-left flex items-center justify-between p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-[color:var(--muted)] transition-colors"
                   >
-                    <span className="text-sm text-slate-700">{p.text}</span>
+                    <span className="text-sm text-slate-700 dark:text-[color:var(--foreground)]">{p.text}</span>
                     <span className="flex items-center gap-2">
-                      <span className="bg-red-100 text-red-700 px-2 py-0.5 rounded-full text-xs font-medium">{p.count}</span>
+                      <span className="bg-red-100 dark:bg-[color:var(--danger-soft)] text-red-700 dark:text-[color:var(--foreground)] px-2 py-0.5 rounded-full text-xs font-medium">{p.count}</span>
                       <svg className={`w-4 h-4 text-slate-400 transition-transform ${expandedTheme === `pp-${i}` ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                       </svg>
@@ -181,9 +193,9 @@ export default function VocDashboardPage() {
                   {expandedTheme === `pp-${i}` && (
                     <div className="ml-4 mt-1 space-y-2">
                       {p.snippets.map((s, j) => (
-                        <div key={j} className="bg-slate-50 rounded-lg p-3 text-xs">
-                          <p className="text-slate-500 mb-1">{s.meetingTitle} &middot; {s.date}</p>
-                          <p className="text-slate-700 italic">&ldquo;{s.snippet}&rdquo;</p>
+                        <div key={j} className="bg-slate-50 dark:bg-[color:var(--muted)] rounded-lg p-3 text-xs animate-slide-down">
+                          <p className="text-slate-500 dark:text-[color:var(--muted-foreground)] mb-1">{s.meetingTitle} &middot; {s.date}</p>
+                          <p className="text-slate-700 dark:text-[color:var(--foreground)] italic">&ldquo;{s.snippet}&rdquo;</p>
                         </div>
                       ))}
                     </div>
@@ -195,8 +207,8 @@ export default function VocDashboardPage() {
         </div>
 
         {/* Feature Requests */}
-        <div className="bg-white border border-slate-200 rounded-xl p-6">
-          <h2 className="font-semibold text-slate-900 mb-4 flex items-center gap-2">
+        <div className="bg-white dark:bg-[color:var(--card)] border border-slate-200 dark:border-[color:var(--border)] rounded-xl p-6 animate-fade-in-up [animation-delay:60ms]">
+          <h2 className="font-semibold text-slate-900 dark:text-[color:var(--card-foreground)] mb-4 flex items-center gap-2">
             <span className="w-3 h-3 bg-green-500 rounded-full" />
             Top Feature Requests
           </h2>
@@ -208,11 +220,11 @@ export default function VocDashboardPage() {
                 <div key={i}>
                   <button
                     onClick={() => toggleTheme(`fr-${i}`)}
-                    className="w-full text-left flex items-center justify-between p-2 rounded-lg hover:bg-slate-50 transition-colors"
+                    className="w-full text-left flex items-center justify-between p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-[color:var(--muted)] transition-colors"
                   >
-                    <span className="text-sm text-slate-700">{f.text}</span>
+                    <span className="text-sm text-slate-700 dark:text-[color:var(--foreground)]">{f.text}</span>
                     <span className="flex items-center gap-2">
-                      <span className="bg-green-100 text-green-700 px-2 py-0.5 rounded-full text-xs font-medium">{f.count}</span>
+                      <span className="bg-green-100 dark:bg-[color:var(--success-soft)] text-green-700 dark:text-[color:var(--foreground)] px-2 py-0.5 rounded-full text-xs font-medium">{f.count}</span>
                       <svg className={`w-4 h-4 text-slate-400 transition-transform ${expandedTheme === `fr-${i}` ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                       </svg>
@@ -221,9 +233,9 @@ export default function VocDashboardPage() {
                   {expandedTheme === `fr-${i}` && (
                     <div className="ml-4 mt-1 space-y-2">
                       {f.snippets.map((s, j) => (
-                        <div key={j} className="bg-slate-50 rounded-lg p-3 text-xs">
-                          <p className="text-slate-500 mb-1">{s.meetingTitle} &middot; {s.date}</p>
-                          <p className="text-slate-700 italic">&ldquo;{s.snippet}&rdquo;</p>
+                        <div key={j} className="bg-slate-50 dark:bg-[color:var(--muted)] rounded-lg p-3 text-xs animate-slide-down">
+                          <p className="text-slate-500 dark:text-[color:var(--muted-foreground)] mb-1">{s.meetingTitle} &middot; {s.date}</p>
+                          <p className="text-slate-700 dark:text-[color:var(--foreground)] italic">&ldquo;{s.snippet}&rdquo;</p>
                         </div>
                       ))}
                     </div>
@@ -235,8 +247,8 @@ export default function VocDashboardPage() {
         </div>
 
         {/* Objections */}
-        <div className="bg-white border border-slate-200 rounded-xl p-6">
-          <h2 className="font-semibold text-slate-900 mb-4 flex items-center gap-2">
+        <div className="bg-white dark:bg-[color:var(--card)] border border-slate-200 dark:border-[color:var(--border)] rounded-xl p-6 animate-fade-in-up [animation-delay:120ms]">
+          <h2 className="font-semibold text-slate-900 dark:text-[color:var(--card-foreground)] mb-4 flex items-center gap-2">
             <span className="w-3 h-3 bg-amber-500 rounded-full" />
             Top Objections
           </h2>
@@ -248,11 +260,11 @@ export default function VocDashboardPage() {
                 <div key={i}>
                   <button
                     onClick={() => toggleTheme(`ob-${i}`)}
-                    className="w-full text-left flex items-center justify-between p-2 rounded-lg hover:bg-slate-50 transition-colors"
+                    className="w-full text-left flex items-center justify-between p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-[color:var(--muted)] transition-colors"
                   >
-                    <span className="text-sm text-slate-700">{o.text}</span>
+                    <span className="text-sm text-slate-700 dark:text-[color:var(--foreground)]">{o.text}</span>
                     <span className="flex items-center gap-2">
-                      <span className="bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full text-xs font-medium">{o.count}</span>
+                      <span className="bg-amber-100 dark:bg-[color:var(--warning-soft)] text-amber-700 dark:text-[color:var(--foreground)] px-2 py-0.5 rounded-full text-xs font-medium">{o.count}</span>
                       <svg className={`w-4 h-4 text-slate-400 transition-transform ${expandedTheme === `ob-${i}` ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                       </svg>
@@ -261,9 +273,9 @@ export default function VocDashboardPage() {
                   {expandedTheme === `ob-${i}` && (
                     <div className="ml-4 mt-1 space-y-2">
                       {o.snippets.map((s, j) => (
-                        <div key={j} className="bg-slate-50 rounded-lg p-3 text-xs">
-                          <p className="text-slate-500 mb-1">{s.meetingTitle} &middot; {s.date}</p>
-                          <p className="text-slate-700 italic">&ldquo;{s.snippet}&rdquo;</p>
+                        <div key={j} className="bg-slate-50 dark:bg-[color:var(--muted)] rounded-lg p-3 text-xs animate-slide-down">
+                          <p className="text-slate-500 dark:text-[color:var(--muted-foreground)] mb-1">{s.meetingTitle} &middot; {s.date}</p>
+                          <p className="text-slate-700 dark:text-[color:var(--foreground)] italic">&ldquo;{s.snippet}&rdquo;</p>
                         </div>
                       ))}
                     </div>
@@ -275,8 +287,8 @@ export default function VocDashboardPage() {
         </div>
 
         {/* Competitors */}
-        <div className="bg-white border border-slate-200 rounded-xl p-6">
-          <h2 className="font-semibold text-slate-900 mb-4 flex items-center gap-2">
+        <div className="bg-white dark:bg-[color:var(--card)] border border-slate-200 dark:border-[color:var(--border)] rounded-xl p-6 animate-fade-in-up [animation-delay:180ms]">
+          <h2 className="font-semibold text-slate-900 dark:text-[color:var(--card-foreground)] mb-4 flex items-center gap-2">
             <span className="w-3 h-3 bg-purple-500 rounded-full" />
             Competitor Mentions
           </h2>
@@ -288,11 +300,11 @@ export default function VocDashboardPage() {
                 <div key={i}>
                   <button
                     onClick={() => toggleTheme(`co-${i}`)}
-                    className="w-full text-left flex items-center justify-between p-2 rounded-lg hover:bg-slate-50 transition-colors"
+                    className="w-full text-left flex items-center justify-between p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-[color:var(--muted)] transition-colors"
                   >
-                    <span className="text-sm text-slate-700 font-medium">{c.name}</span>
+                    <span className="text-sm text-slate-700 dark:text-[color:var(--foreground)] font-medium">{c.name}</span>
                     <span className="flex items-center gap-2">
-                      <span className="bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full text-xs font-medium">{c.count}</span>
+                      <span className="bg-purple-100 dark:bg-[color:var(--accent-soft)] text-purple-700 dark:text-[color:var(--foreground)] px-2 py-0.5 rounded-full text-xs font-medium">{c.count}</span>
                       <svg className={`w-4 h-4 text-slate-400 transition-transform ${expandedTheme === `co-${i}` ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                       </svg>
@@ -301,10 +313,10 @@ export default function VocDashboardPage() {
                   {expandedTheme === `co-${i}` && (
                     <div className="ml-4 mt-1 space-y-2">
                       {c.contexts.map((ctx, j) => (
-                        <div key={j} className="bg-slate-50 rounded-lg p-3 text-xs">
-                          <p className="text-slate-500 mb-1">{ctx.meetingTitle} &middot; {ctx.date}</p>
-                          <p className="text-slate-700 mb-1"><strong>Context:</strong> {ctx.context}</p>
-                          <p className="text-slate-600 italic">&ldquo;{ctx.snippet}&rdquo;</p>
+                        <div key={j} className="bg-slate-50 dark:bg-[color:var(--muted)] rounded-lg p-3 text-xs animate-slide-down">
+                          <p className="text-slate-500 dark:text-[color:var(--muted-foreground)] mb-1">{ctx.meetingTitle} &middot; {ctx.date}</p>
+                          <p className="text-slate-700 dark:text-[color:var(--foreground)] mb-1"><strong>Context:</strong> {ctx.context}</p>
+                          <p className="text-slate-600 dark:text-[color:var(--muted-foreground)] italic">&ldquo;{ctx.snippet}&rdquo;</p>
                         </div>
                       ))}
                     </div>

@@ -94,19 +94,28 @@ export default function NewMeetingPage() {
     setInsights(updated);
   };
 
-  if (!opportunity) return <div className="text-slate-500">Loading...</div>;
+  if (!opportunity) {
+    return (
+      <div className="space-y-3">
+        <div className="h-5 w-40 rounded-lg skeleton" />
+        <div className="h-7 w-72 max-w-full rounded-lg skeleton" />
+        <div className="h-4 w-96 max-w-full rounded-lg skeleton" />
+        <div className="h-72 w-full rounded-xl skeleton" />
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-4xl mx-auto">
-      <Link href={`/sales/${opportunityId}`} className="text-sm text-blue-600 hover:text-blue-800 flex items-center gap-1 mb-6">
+      <Link href={`/sales/${opportunityId}`} className="text-sm text-blue-600 hover:text-blue-800 dark:text-[color:var(--primary)] dark:hover:text-[color:var(--ring)] flex items-center gap-1 mb-6">
         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
         </svg>
         Back to {opportunity.name}
       </Link>
 
-      <h1 className="text-2xl font-bold text-slate-900 mb-1">Record New Meeting</h1>
-      <p className="text-slate-500 mb-8">{opportunity.name} &middot; {account?.name}</p>
+      <h1 className="text-2xl font-bold text-slate-900 dark:text-[color:var(--foreground)] mb-1 animate-fade-in-up">Record New Meeting</h1>
+      <p className="text-slate-500 dark:text-[color:var(--muted-foreground)] mb-8 animate-fade-in-up [animation-delay:80ms]">{opportunity.name} &middot; {account?.name}</p>
 
       {/* Progress steps */}
       <div className="flex items-center gap-4 mb-8">
@@ -122,56 +131,56 @@ export default function NewMeetingPage() {
               }`}>
                 {isDone ? "\u2713" : i + 1}
               </div>
-              <span className={`text-sm ${isActive ? "font-medium text-slate-900" : "text-slate-400"}`}>{label}</span>
-              {i < 2 && <div className="w-12 h-px bg-slate-200 ml-2" />}
+              <span className={`text-sm ${isActive ? "font-medium text-slate-900 dark:text-[color:var(--foreground)]" : "text-slate-400"}`}>{label}</span>
+              {i < 2 && <div className="w-12 h-px bg-slate-200 dark:bg-[color:var(--border)] ml-2" />}
             </div>
           );
         })}
       </div>
 
       {step === "input" && (
-        <div className="bg-white border border-slate-200 rounded-xl p-6 space-y-6">
+        <div className="bg-white dark:bg-[color:var(--card)] border border-slate-200 dark:border-[color:var(--border)] rounded-xl p-6 space-y-6 animate-fade-in-up">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">Meeting Title</label>
+              <label className="block text-sm font-medium text-slate-700 dark:text-[color:var(--muted-foreground)] mb-1">Meeting Title</label>
               <input
                 type="text"
                 value={title}
                 onChange={e => setTitle(e.target.value)}
                 placeholder="e.g., Discovery Call - Nordea"
-                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-slate-300 dark:border-[color:var(--border)] rounded-lg px-3 py-2 text-sm bg-white dark:bg-[color:var(--card)] text-slate-900 dark:text-[color:var(--foreground)] focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">Date</label>
+              <label className="block text-sm font-medium text-slate-700 dark:text-[color:var(--muted-foreground)] mb-1">Date</label>
               <input
                 type="date"
                 value={date}
                 onChange={e => setDate(e.target.value)}
-                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-slate-300 dark:border-[color:var(--border)] rounded-lg px-3 py-2 text-sm bg-white dark:bg-[color:var(--card)] text-slate-900 dark:text-[color:var(--foreground)] focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">Participants (comma-separated)</label>
+            <label className="block text-sm font-medium text-slate-700 dark:text-[color:var(--muted-foreground)] mb-1">Participants (comma-separated)</label>
             <input
               type="text"
               value={participants}
               onChange={e => setParticipants(e.target.value)}
               placeholder="Alex Berg, Johan Lindqvist"
-              className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-slate-300 dark:border-[color:var(--border)] rounded-lg px-3 py-2 text-sm bg-white dark:bg-[color:var(--card)] text-slate-900 dark:text-[color:var(--foreground)] focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">Meeting Transcript / Notes</label>
+            <label className="block text-sm font-medium text-slate-700 dark:text-[color:var(--muted-foreground)] mb-1">Meeting Transcript / Notes</label>
             <textarea
               value={transcript}
               onChange={e => setTranscript(e.target.value)}
               rows={16}
               placeholder="Paste your meeting transcript or notes here...&#10;&#10;Alex: Thanks for joining today.&#10;Customer: Sure, let me walk you through our current process..."
-              className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono"
+              className="w-full border border-slate-300 dark:border-[color:var(--border)] rounded-lg px-3 py-2 text-sm bg-white dark:bg-[color:var(--card)] text-slate-900 dark:text-[color:var(--foreground)] focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono"
             />
           </div>
 
@@ -179,7 +188,7 @@ export default function NewMeetingPage() {
             <button
               onClick={handleExtract}
               disabled={!title || !transcript || extracting}
-              className="px-6 py-2.5 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+              className="px-6 py-2.5 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 active:scale-[0.98]"
             >
               {extracting ? (
                 <>
@@ -199,20 +208,20 @@ export default function NewMeetingPage() {
 
       {step === "review" && insights && (
         <div className="space-y-6">
-          <div className="bg-white border border-slate-200 rounded-xl p-6">
-            <h2 className="font-semibold text-slate-900 mb-3">Meeting Summary</h2>
+          <div className="bg-white dark:bg-[color:var(--card)] border border-slate-200 dark:border-[color:var(--border)] rounded-xl p-6 animate-fade-in-up">
+            <h2 className="font-semibold text-slate-900 dark:text-[color:var(--card-foreground)] mb-3">Meeting Summary</h2>
             <textarea
               value={insights.summary}
               onChange={e => setInsights({ ...insights, summary: e.target.value })}
               rows={3}
-              className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-slate-300 dark:border-[color:var(--border)] rounded-lg px-3 py-2 text-sm bg-white dark:bg-[color:var(--card)] text-slate-900 dark:text-[color:var(--foreground)] focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Pain Points */}
-            <div className="bg-white border border-slate-200 rounded-xl p-6">
-              <h3 className="font-semibold text-red-700 mb-3 flex items-center gap-2">
+            <div className="bg-white dark:bg-[color:var(--card)] border border-slate-200 dark:border-[color:var(--border)] rounded-xl p-6 animate-fade-in-up [animation-delay:80ms]">
+              <h3 className="font-semibold text-red-700 dark:text-[color:var(--foreground)] mb-3 flex items-center gap-2">
                 <span className="w-2 h-2 bg-red-500 rounded-full" />
                 Pain Points ({insights.painPoints.length})
               </h3>
@@ -222,17 +231,17 @@ export default function NewMeetingPage() {
                     <input
                       value={p.text}
                       onChange={e => updateInsightField("painPoints", i, "text", e.target.value)}
-                      className="w-full border border-slate-200 rounded px-2 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
+                      className="w-full border border-slate-200 dark:border-[color:var(--border)] rounded px-2 py-1 text-sm bg-white dark:bg-[color:var(--card)] text-slate-900 dark:text-[color:var(--foreground)] focus:outline-none focus:ring-1 focus:ring-blue-500"
                     />
-                    <p className="text-xs text-slate-400 italic pl-2">&ldquo;{p.snippet}&rdquo;</p>
+                    <p className="text-xs text-slate-400 dark:text-[color:var(--muted-foreground)] italic pl-2">&ldquo;{p.snippet}&rdquo;</p>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Feature Requests */}
-            <div className="bg-white border border-slate-200 rounded-xl p-6">
-              <h3 className="font-semibold text-green-700 mb-3 flex items-center gap-2">
+            <div className="bg-white dark:bg-[color:var(--card)] border border-slate-200 dark:border-[color:var(--border)] rounded-xl p-6 animate-fade-in-up [animation-delay:120ms]">
+              <h3 className="font-semibold text-green-700 dark:text-[color:var(--foreground)] mb-3 flex items-center gap-2">
                 <span className="w-2 h-2 bg-green-500 rounded-full" />
                 Feature Requests ({insights.featureRequests.length})
               </h3>
@@ -242,32 +251,32 @@ export default function NewMeetingPage() {
                     <input
                       value={f.text}
                       onChange={e => updateInsightField("featureRequests", i, "text", e.target.value)}
-                      className="w-full border border-slate-200 rounded px-2 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
+                      className="w-full border border-slate-200 dark:border-[color:var(--border)] rounded px-2 py-1 text-sm bg-white dark:bg-[color:var(--card)] text-slate-900 dark:text-[color:var(--foreground)] focus:outline-none focus:ring-1 focus:ring-blue-500"
                     />
-                    <p className="text-xs text-slate-400 italic pl-2">&ldquo;{f.snippet}&rdquo;</p>
+                    <p className="text-xs text-slate-400 dark:text-[color:var(--muted-foreground)] italic pl-2">&ldquo;{f.snippet}&rdquo;</p>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Objections */}
-            <div className="bg-white border border-slate-200 rounded-xl p-6">
-              <h3 className="font-semibold text-amber-700 mb-3 flex items-center gap-2">
+            <div className="bg-white dark:bg-[color:var(--card)] border border-slate-200 dark:border-[color:var(--border)] rounded-xl p-6 animate-fade-in-up [animation-delay:160ms]">
+              <h3 className="font-semibold text-amber-700 dark:text-[color:var(--foreground)] mb-3 flex items-center gap-2">
                 <span className="w-2 h-2 bg-amber-500 rounded-full" />
                 Objections ({insights.objections.length})
               </h3>
               <div className="space-y-3">
                 {insights.objections.length === 0 ? (
-                  <p className="text-sm text-slate-400 italic">No objections detected</p>
+                  <p className="text-sm text-slate-400 dark:text-[color:var(--muted-foreground)] italic">No objections detected</p>
                 ) : (
                   insights.objections.map((o, i) => (
                     <div key={i} className="space-y-1">
                       <input
                         value={o.text}
                         onChange={e => updateInsightField("objections", i, "text", e.target.value)}
-                        className="w-full border border-slate-200 rounded px-2 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
+                        className="w-full border border-slate-200 dark:border-[color:var(--border)] rounded px-2 py-1 text-sm bg-white dark:bg-[color:var(--card)] text-slate-900 dark:text-[color:var(--foreground)] focus:outline-none focus:ring-1 focus:ring-blue-500"
                       />
-                      <p className="text-xs text-slate-400 italic pl-2">&ldquo;{o.snippet}&rdquo;</p>
+                      <p className="text-xs text-slate-400 dark:text-[color:var(--muted-foreground)] italic pl-2">&ldquo;{o.snippet}&rdquo;</p>
                     </div>
                   ))
                 )}
@@ -275,14 +284,14 @@ export default function NewMeetingPage() {
             </div>
 
             {/* Competitors */}
-            <div className="bg-white border border-slate-200 rounded-xl p-6">
-              <h3 className="font-semibold text-purple-700 mb-3 flex items-center gap-2">
+            <div className="bg-white dark:bg-[color:var(--card)] border border-slate-200 dark:border-[color:var(--border)] rounded-xl p-6 animate-fade-in-up [animation-delay:200ms]">
+              <h3 className="font-semibold text-purple-700 dark:text-[color:var(--foreground)] mb-3 flex items-center gap-2">
                 <span className="w-2 h-2 bg-purple-500 rounded-full" />
                 Competitors ({insights.competitors.length})
               </h3>
               <div className="space-y-3">
                 {insights.competitors.length === 0 ? (
-                  <p className="text-sm text-slate-400 italic">No competitors mentioned</p>
+                  <p className="text-sm text-slate-400 dark:text-[color:var(--muted-foreground)] italic">No competitors mentioned</p>
                 ) : (
                   insights.competitors.map((c, i) => (
                     <div key={i} className="space-y-1">
@@ -290,15 +299,15 @@ export default function NewMeetingPage() {
                         <input
                           value={c.name}
                           onChange={e => updateInsightField("competitors", i, "name", e.target.value)}
-                          className="w-1/3 border border-slate-200 rounded px-2 py-1 text-sm font-medium focus:outline-none focus:ring-1 focus:ring-blue-500"
+                          className="w-1/3 border border-slate-200 dark:border-[color:var(--border)] rounded px-2 py-1 text-sm font-medium bg-white dark:bg-[color:var(--card)] text-slate-900 dark:text-[color:var(--foreground)] focus:outline-none focus:ring-1 focus:ring-blue-500"
                         />
                         <input
                           value={c.context}
                           onChange={e => updateInsightField("competitors", i, "context", e.target.value)}
-                          className="w-2/3 border border-slate-200 rounded px-2 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
+                          className="w-2/3 border border-slate-200 dark:border-[color:var(--border)] rounded px-2 py-1 text-sm bg-white dark:bg-[color:var(--card)] text-slate-900 dark:text-[color:var(--foreground)] focus:outline-none focus:ring-1 focus:ring-blue-500"
                         />
                       </div>
-                      <p className="text-xs text-slate-400 italic pl-2">&ldquo;{c.snippet}&rdquo;</p>
+                      <p className="text-xs text-slate-400 dark:text-[color:var(--muted-foreground)] italic pl-2">&ldquo;{c.snippet}&rdquo;</p>
                     </div>
                   ))
                 )}
@@ -307,8 +316,8 @@ export default function NewMeetingPage() {
           </div>
 
           {/* Action Items */}
-          <div className="bg-white border border-slate-200 rounded-xl p-6">
-            <h3 className="font-semibold text-slate-900 mb-3">Action Items ({insights.actionItems.length})</h3>
+          <div className="bg-white dark:bg-[color:var(--card)] border border-slate-200 dark:border-[color:var(--border)] rounded-xl p-6 animate-fade-in-up [animation-delay:240ms]">
+            <h3 className="font-semibold text-slate-900 dark:text-[color:var(--card-foreground)] mb-3">Action Items ({insights.actionItems.length})</h3>
             <div className="space-y-2">
               {insights.actionItems.map((a, i) => (
                 <div key={i} className="flex items-center gap-3">
@@ -329,7 +338,7 @@ export default function NewMeetingPage() {
                       updated[i] = { ...updated[i], text: e.target.value };
                       setInsights({ ...insights, actionItems: updated });
                     }}
-                    className="flex-1 border border-slate-200 rounded px-2 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
+                    className="flex-1 border border-slate-200 dark:border-[color:var(--border)] rounded px-2 py-1 text-sm bg-white dark:bg-[color:var(--card)] text-slate-900 dark:text-[color:var(--foreground)] focus:outline-none focus:ring-1 focus:ring-blue-500"
                   />
                   <input
                     value={a.owner}
@@ -338,7 +347,7 @@ export default function NewMeetingPage() {
                       updated[i] = { ...updated[i], owner: e.target.value };
                       setInsights({ ...insights, actionItems: updated });
                     }}
-                    className="w-40 border border-slate-200 rounded px-2 py-1 text-sm text-slate-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                    className="w-40 border border-slate-200 dark:border-[color:var(--border)] rounded px-2 py-1 text-sm bg-white dark:bg-[color:var(--card)] text-slate-600 dark:text-[color:var(--muted-foreground)] focus:outline-none focus:ring-1 focus:ring-blue-500"
                   />
                 </div>
               ))}
@@ -348,14 +357,14 @@ export default function NewMeetingPage() {
           <div className="flex justify-between">
             <button
               onClick={() => setStep("input")}
-              className="px-4 py-2 border border-slate-300 rounded-lg text-sm text-slate-700 hover:bg-slate-50 transition-colors"
+              className="px-4 py-2 border border-slate-300 dark:border-[color:var(--border)] rounded-lg text-sm text-slate-700 dark:text-[color:var(--foreground)] hover:bg-slate-50 dark:hover:bg-[color:var(--muted)] transition-colors"
             >
               Back to Edit Transcript
             </button>
             <button
               onClick={handleSave}
               disabled={saving}
-              className="px-6 py-2.5 bg-green-600 text-white rounded-lg text-sm font-medium hover:bg-green-700 transition-colors disabled:opacity-50"
+              className="px-6 py-2.5 bg-green-600 text-white rounded-lg text-sm font-medium hover:bg-green-700 transition-colors disabled:opacity-50 active:scale-[0.98]"
             >
               {saving ? "Saving to CRM..." : "Save to CRM"}
             </button>
@@ -364,14 +373,14 @@ export default function NewMeetingPage() {
       )}
 
       {step === "saved" && (
-        <div className="bg-white border border-green-200 rounded-xl p-12 text-center">
+        <div className="bg-white dark:bg-[color:var(--card)] border border-green-200 dark:border-[color:var(--border)] rounded-xl p-12 text-center animate-fade-in-up">
           <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
             </svg>
           </div>
-          <h2 className="text-xl font-semibold text-slate-900 mb-2">Meeting Saved Successfully</h2>
-          <p className="text-slate-500 mb-6">The meeting and extracted insights have been saved to the CRM.</p>
+          <h2 className="text-xl font-semibold text-slate-900 dark:text-[color:var(--foreground)] mb-2">Meeting Saved Successfully</h2>
+          <p className="text-slate-500 dark:text-[color:var(--muted-foreground)] mb-6">The meeting and extracted insights have been saved to the CRM.</p>
           <div className="flex justify-center gap-4">
             <button
               onClick={() => router.push(`/sales/${opportunityId}`)}
@@ -388,7 +397,7 @@ export default function NewMeetingPage() {
                 setParticipants("Alex Berg, ");
                 setDate(new Date().toISOString().split("T")[0]);
               }}
-              className="px-4 py-2 border border-slate-300 rounded-lg text-sm text-slate-700 hover:bg-slate-50 transition-colors"
+              className="px-4 py-2 border border-slate-300 dark:border-[color:var(--border)] rounded-lg text-sm text-slate-700 dark:text-[color:var(--foreground)] hover:bg-slate-50 dark:hover:bg-[color:var(--muted)] transition-colors"
             >
               Record Another Meeting
             </button>
