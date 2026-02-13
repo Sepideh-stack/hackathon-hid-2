@@ -1,26 +1,36 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { VocData } from "@/lib/types";
+import { Product, VocData } from "@/lib/types";
 
 export default function VocDashboardPage() {
   const [vocData, setVocData] = useState<VocData | null>(null);
-  const [product, setProduct] = useState<string>("");
+  const [products, setProducts] = useState<Product[]>([]);
+  const [productId, setProductId] = useState<string>("");
+  const [region, setRegion] = useState<string>("");
+  const [stage, setStage] = useState<string>("");
   const [dateFrom, setDateFrom] = useState("");
   const [dateTo, setDateTo] = useState("");
   const [expandedTheme, setExpandedTheme] = useState<string | null>(null);
   const [vocSummary, setVocSummary] = useState<string | null>(null);
   const [summaryLoading, setSummaryLoading] = useState(false);
 
-  const products = ["PIAM Visitor Management", "PKI-as-a-Service"];
+  const regions = ["Nordics", "EU"];
+  const stages = ["Discovery", "Evaluation"];
+
+  useEffect(() => {
+    fetch("/api/products").then(r => r.json()).then(setProducts);
+  }, []);
 
   useEffect(() => {
     const params = new URLSearchParams();
-    if (product) params.set("product", product);
+    if (productId) params.set("productId", productId);
+    if (region) params.set("region", region);
+    if (stage) params.set("stage", stage);
     if (dateFrom) params.set("dateFrom", dateFrom);
     if (dateTo) params.set("dateTo", dateTo);
     fetch(`/api/voc?${params.toString()}`).then(r => r.json()).then(setVocData);
-  }, [product, dateFrom, dateTo]);
+  }, [productId, region, stage, dateFrom, dateTo]);
 
   const handleGenerateSummary = async () => {
     if (!vocData) return;
@@ -30,7 +40,7 @@ export default function VocDashboardPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          product: product || "All Products",
+          product: productId ? (products.find(p => p.id === productId)?.name || productId) : "All Products",
           painPoints: vocData.painPoints.map(p => ({ text: p.text, count: p.count })),
           featureRequests: vocData.featureRequests.map(f => ({ text: f.text, count: f.count })),
           objections: vocData.objections.map(o => ({ text: o.text, count: o.count })),
@@ -64,13 +74,39 @@ export default function VocDashboardPage() {
         <div>
           <label className="block text-xs font-medium text-slate-500 mb-1">Product</label>
           <select
-            value={product}
-            onChange={e => setProduct(e.target.value)}
+            value={productId}
+            onChange={e => setProductId(e.target.value)}
             className="border border-slate-300 rounded-lg px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-purple-500"
           >
             <option value="">All Products</option>
             {products.map(p => (
-              <option key={p} value={p}>{p}</option>
+              <option key={p.id} value={p.id}>{p.name}</option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label className="block text-xs font-medium text-slate-500 mb-1">Region</label>
+          <select
+            value={region}
+            onChange={e => setRegion(e.target.value)}
+            className="border border-slate-300 rounded-lg px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+          >
+            <option value="">All Regions</option>
+            {regions.map(r => (
+              <option key={r} value={r}>{r}</option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label className="block text-xs font-medium text-slate-500 mb-1">Stage</label>
+          <select
+            value={stage}
+            onChange={e => setStage(e.target.value)}
+            className="border border-slate-300 rounded-lg px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+          >
+            <option value="">All Stages</option>
+            {stages.map(s => (
+              <option key={s} value={s}>{s}</option>
             ))}
           </select>
         </div>

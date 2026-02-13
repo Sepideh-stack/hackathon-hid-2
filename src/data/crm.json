@@ -1,0 +1,1521 @@
+{
+  "products": [
+    {
+      "product_id": "PROD-PIAM-VM",
+      "product_name": "PIAM Visitor Management",
+      "product_description_short": "Visitor and contractor identity, registration, badging, compliance, and audit for facilities."
+    },
+    {
+      "product_id": "PROD-PKI-AAS",
+      "product_name": "PKI-as-a-Service",
+      "product_description_short": "Managed PKI for issuing and lifecycle management of certificates for users, devices, apps, and access."
+    }
+  ],
+  "accounts": [
+    {
+      "account_id": "ACC-PIAM-001",
+      "account_name": "NordicFab Manufacturing Group",
+      "industry": "Manufacturing",
+      "region": "Nordics",
+      "company_size": "Enterprise",
+      "customer_tier": "Tier 1",
+      "current_stack": [
+        "Microsoft Entra ID",
+        "LenelS2",
+        "ServiceNow"
+      ],
+      "pain_points": [
+        "Contractor management",
+        "Audit readiness",
+        "Badge issuance delays"
+      ],
+      "primary_products_of_interest": [
+        "PROD-PIAM-VM"
+      ]
+    },
+    {
+      "account_id": "ACC-PIAM-002",
+      "account_name": "SkandiaPort Logistics",
+      "industry": "Transportation & Logistics",
+      "region": "Nordics",
+      "company_size": "Mid-market",
+      "customer_tier": "Tier 2",
+      "current_stack": [
+        "Okta",
+        "Genetec",
+        "SharePoint"
+      ],
+      "pain_points": [
+        "High visitor volume",
+        "Security incident reporting",
+        "Multi-site consistency"
+      ],
+      "primary_products_of_interest": [
+        "PROD-PIAM-VM"
+      ]
+    },
+    {
+      "account_id": "ACC-PIAM-003",
+      "account_name": "Stellaris Clinical Research Centers",
+      "industry": "Healthcare & Life Sciences",
+      "region": "EU",
+      "company_size": "Enterprise",
+      "customer_tier": "Tier 1",
+      "current_stack": [
+        "Azure AD",
+        "OnGuard",
+        "GxP document controls"
+      ],
+      "pain_points": [
+        "Compliance evidence",
+        "Vendor access control",
+        "PII handling"
+      ],
+      "primary_products_of_interest": [
+        "PROD-PIAM-VM"
+      ]
+    },
+    {
+      "account_id": "ACC-PIAM-004",
+      "account_name": "CivicWorks Municipal Facilities",
+      "industry": "Public Sector",
+      "region": "EU",
+      "company_size": "Mid-market",
+      "customer_tier": "Tier 3",
+      "current_stack": [
+        "Active Directory",
+        "Legacy badge printing",
+        "Email-based approvals"
+      ],
+      "pain_points": [
+        "Manual approvals",
+        "Security desk workload",
+        "Accessibility and ease of use"
+      ],
+      "primary_products_of_interest": [
+        "PROD-PIAM-VM"
+      ]
+    },
+    {
+      "account_id": "ACC-PKI-001",
+      "account_name": "Arctiq Energy Utilities",
+      "industry": "Energy & Utilities",
+      "region": "Nordics",
+      "company_size": "Enterprise",
+      "customer_tier": "Tier 1",
+      "current_stack": [
+        "Microsoft PKI (AD CS)",
+        "Entra ID",
+        "SCADA device estate"
+      ],
+      "pain_points": [
+        "Certificate lifecycle chaos",
+        "Outages from expired certs",
+        "Audit and key management"
+      ],
+      "primary_products_of_interest": [
+        "PROD-PKI-AAS"
+      ]
+    },
+    {
+      "account_id": "ACC-PKI-002",
+      "account_name": "FinTrust Digital Bank",
+      "industry": "Financial Services",
+      "region": "EU",
+      "company_size": "Enterprise",
+      "customer_tier": "Tier 1",
+      "current_stack": [
+        "HSM (Thales)",
+        "Kubernetes",
+        "Custom internal CA"
+      ],
+      "pain_points": [
+        "Policy compliance",
+        "DevOps certificate automation",
+        "Separation of duties"
+      ],
+      "primary_products_of_interest": [
+        "PROD-PKI-AAS"
+      ]
+    },
+    {
+      "account_id": "ACC-PKI-003",
+      "account_name": "AeroFleet Avionics Supplier",
+      "industry": "Aerospace & Defense",
+      "region": "EU",
+      "company_size": "Mid-market",
+      "customer_tier": "Tier 2",
+      "current_stack": [
+        "On-prem CA",
+        "Air-gapped environments",
+        "Windows + embedded devices"
+      ],
+      "pain_points": [
+        "Hybrid deployment",
+        "Ojline constraints",
+        "Supplier compliance requirements"
+      ],
+      "primary_products_of_interest": [
+        "PROD-PKI-AAS"
+      ]
+    },
+    {
+      "account_id": "ACC-PKI-004",
+      "account_name": "MedTech IoT Devices AB",
+      "industry": "Healthcare Technology",
+      "region": "Nordics",
+      "company_size": "SMB",
+      "customer_tier": "Tier 3",
+      "current_stack": [
+        "AWS IoT",
+        "Device provisioning pipeline",
+        "Basic TLS cert handling"
+      ],
+      "pain_points": [
+        "Scale and automation",
+        "Device identity",
+        "Customer security questionnaires"
+      ],
+      "primary_products_of_interest": [
+        "PROD-PKI-AAS"
+      ]
+    }
+  ],
+  "contacts": [
+    {
+      "contact_id": "CON-PIAM-001-A",
+      "account_id": "ACC-PIAM-001",
+      "name": "Elin Sundberg",
+      "role": "Head of Physical Security",
+      "seniority": "Director",
+      "email": "elin.sundberg@nordicfab.example",
+      "influence_level": "Champion",
+      "notes": "Owns site security ops, wants fewer desk bottlenecks."
+    },
+    {
+      "contact_id": "CON-PIAM-001-B",
+      "account_id": "ACC-PIAM-001",
+      "name": "Mikael Roos",
+      "role": "IAM Architect",
+      "seniority": "Senior IC",
+      "email": "mikael.roos@nordicfab.example",
+      "influence_level": "Technical evaluator",
+      "notes": "Cares about integrations, data retention, and audit trails."
+    },
+    {
+      "contact_id": "CON-PIAM-002-A",
+      "account_id": "ACC-PIAM-002",
+      "name": "Sara Lind",
+      "role": "Security Operations Manager",
+      "seniority": "Manager",
+      "email": "sara.lind@skandiaport.example",
+      "influence_level": "Champion",
+      "notes": "Wants standardized processes across 6 sites."
+    },
+    {
+      "contact_id": "CON-PIAM-002-B",
+      "account_id": "ACC-PIAM-002",
+      "name": "Jonas Hult",
+      "role": "Facilities Director",
+      "seniority": "Director",
+      "email": "jonas.hult@skandiaport.example",
+      "influence_level": "Economic buyer",
+      "notes": "Cares about cost, desk stajing, and incident reporting."
+    },
+    {
+      "contact_id": "CON-PIAM-003-A",
+      "account_id": "ACC-PIAM-003",
+      "name": "Dr. Nina Keller",
+      "role": "Compliance Lead (GxP)",
+      "seniority": "Director",
+      "email": "nina.keller@stellariscrc.example",
+      "influence_level": "Key stakeholder",
+      "notes": "Needs evidence for audits, wary of PII storage."
+    },
+    {
+      "contact_id": "CON-PIAM-003-B",
+      "account_id": "ACC-PIAM-003",
+      "name": "Andre Varga",
+      "role": "IT Operations Manager",
+      "seniority": "Manager",
+      "email": "andre.varga@stellariscrc.example",
+      "influence_level": "Technical evaluator",
+      "notes": "Wants SSO, provisioning, minimal admin overhead."
+    },
+    {
+      "contact_id": "CON-PIAM-004-A",
+      "account_id": "ACC-PIAM-004",
+      "name": "Karin Holm",
+      "role": "Administrative Services Manager",
+      "seniority": "Manager",
+      "email": "karin.holm@civicworks.example",
+      "influence_level": "Champion",
+      "notes": "Feels pain of manual approvals daily."
+    },
+    {
+      "contact_id": "CON-PIAM-004-B",
+      "account_id": "ACC-PIAM-004",
+      "name": "Oskar Broman",
+      "role": "IT Security Ojicer",
+      "seniority": "Senior IC",
+      "email": "oskar.broman@civicworks.example",
+      "influence_level": "Blocker",
+      "notes": "Skeptical about cloud, asks about data residency constantly."
+    },
+    {
+      "contact_id": "CON-PKI-001-A",
+      "account_id": "ACC-PKI-001",
+      "name": "Hanna Berg",
+      "role": "OT Security Lead",
+      "seniority": "Director",
+      "email": "hanna.berg@arctiqenergy.example",
+      "influence_level": "Champion",
+      "notes": "Keeps getting burned by certificate expirations."
+    },
+    {
+      "contact_id": "CON-PKI-001-B",
+      "account_id": "ACC-PKI-001",
+      "name": "Petter Dahl",
+      "role": "Infrastructure Manager",
+      "seniority": "Manager",
+      "email": "petter.dahl@arctiqenergy.example",
+      "influence_level": "Technical evaluator",
+      "notes": "Wants tooling, APIs, monitoring, and clear ownership model."
+    },
+    {
+      "contact_id": "CON-PKI-002-A",
+      "account_id": "ACC-PKI-002",
+      "name": "Lea Moreau",
+      "role": "Head of Platform Engineering",
+      "seniority": "Director",
+      "email": "lea.moreau@fintrust.example",
+      "influence_level": "Champion",
+      "notes": "Wants cert automation in CI/CD and Kubernetes."
+    },
+    {
+      "contact_id": "CON-PKI-002-B",
+      "account_id": "ACC-PKI-002",
+      "name": "Marco Stein",
+      "role": "Risk & Compliance",
+      "seniority": "Director",
+      "email": "marco.stein@fintrust.example",
+      "influence_level": "Economic buyer",
+      "notes": "Cares about controls, reporting, and audit evidence."
+    },
+    {
+      "contact_id": "CON-PKI-003-A",
+      "account_id": "ACC-PKI-003",
+      "name": "Sofia Ilic",
+      "role": "Program Manager, Supplier Security",
+      "seniority": "Manager",
+      "email": "sofia.ilic@aerofleet.example",
+      "influence_level": "Key stakeholder",
+      "notes": "Needs compliance documentation for primes."
+    },
+    {
+      "contact_id": "CON-PKI-003-B",
+      "account_id": "ACC-PKI-003",
+      "name": "Tomáš Novak",
+      "role": "Security Engineer",
+      "seniority": "Senior IC",
+      "email": "tomas.novak@aerofleet.example",
+      "influence_level": "Technical evaluator",
+      "notes": "Wants hybrid and ojline story, hates vendor fluj."
+    },
+    {
+      "contact_id": "CON-PKI-004-A",
+      "account_id": "ACC-PKI-004",
+      "name": "Amir Saleh",
+      "role": "CTO",
+      "seniority": "Executive",
+      "email": "amir.saleh@medtechiot.example",
+      "influence_level": "Economic buyer",
+      "notes": "Small team, wants managed service, minimal ops."
+    },
+    {
+      "contact_id": "CON-PKI-004-B",
+      "account_id": "ACC-PKI-004",
+      "name": "Lina Sjögren",
+      "role": "Lead Backend Engineer",
+      "seniority": "Senior IC",
+      "email": "lina.sjogren@medtechiot.example",
+      "influence_level": "Champion",
+      "notes": "Owns device provisioning pipeline, wants APIs and SDKs."
+    }
+  ],
+  "opportunities": [
+    {
+      "opportunity_id": "OPP-PIAM-001",
+      "account_id": "ACC-PIAM-001",
+      "product_id": "PROD-PIAM-VM",
+      "opportunity_name": "NordicFab, Contractor and Visitor Modernization",
+      "stage": "Evaluation",
+      "amount_est_usd": 180000,
+      "close_date_est": "2026-04-30",
+      "use_case": "Reduce contractor onboarding time, improve audit trail, integrate with access control.",
+      "competitors_mentioned": [
+        "Envoy",
+        "Proxyclick"
+      ],
+      "key_risks": [
+        "Integration complexity",
+        "Security desk adoption"
+      ],
+      "last_updated": "2026-02-05"
+    },
+    {
+      "opportunity_id": "OPP-PIAM-002",
+      "account_id": "ACC-PIAM-002",
+      "product_id": "PROD-PIAM-VM",
+      "opportunity_name": "SkandiaPort, Multi-site Visitor Standardization",
+      "stage": "Discovery",
+      "amount_est_usd": 95000,
+      "close_date_est": "2026-05-15",
+      "use_case": "Standard visitor process across sites, faster approvals, better incident traceability.",
+      "competitors_mentioned": [
+        "Sign In App"
+      ],
+      "key_risks": [
+        "Budget approval",
+        "Change management across sites"
+      ],
+      "last_updated": "2026-02-06"
+    },
+    {
+      "opportunity_id": "OPP-PIAM-003",
+      "account_id": "ACC-PIAM-003",
+      "product_id": "PROD-PIAM-VM",
+      "opportunity_name": "Stellaris CRC, Compliance-first Visitor Workflow",
+      "stage": "Evaluation",
+      "amount_est_usd": 220000,
+      "close_date_est": "2026-06-20",
+      "use_case": "Vendor and visitor management aligned to GxP, strong reporting and audit exports.",
+      "competitors_mentioned": [
+        "Proxyclick"
+      ],
+      "key_risks": [
+        "PII/data residency",
+        "Validation requirements"
+      ],
+      "last_updated": "2026-02-04"
+    },
+    {
+      "opportunity_id": "OPP-PIAM-004",
+      "account_id": "ACC-PIAM-004",
+      "product_id": "PROD-PIAM-VM",
+      "opportunity_name": "CivicWorks, Replace Manual Visitor Approvals",
+      "stage": "Discovery",
+      "amount_est_usd": 45000,
+      "close_date_est": "2026-05-01",
+      "use_case": "Digitize approvals, reduce front desk load, simple user experience.",
+      "competitors_mentioned": [
+        "None stated"
+      ],
+      "key_risks": [
+        "Cloud skepticism",
+        "Procurement timelines"
+      ],
+      "last_updated": "2026-02-03"
+    },
+    {
+      "opportunity_id": "OPP-PKI-001",
+      "account_id": "ACC-PKI-001",
+      "product_id": "PROD-PKI-AAS",
+      "opportunity_name": "Arctiq Energy, Certificate Lifecycle Stabilization",
+      "stage": "Evaluation",
+      "amount_est_usd": 300000,
+      "close_date_est": "2026-06-10",
+      "use_case": "Automate cert renewal, reduce outages, governance for OT devices.",
+      "competitors_mentioned": [
+        "Venafi",
+        "DigiCert managed PKI"
+      ],
+      "key_risks": [
+        "OT constraints",
+        "Ownership between IT and OT"
+      ],
+      "last_updated": "2026-02-06"
+    },
+    {
+      "opportunity_id": "OPP-PKI-002",
+      "account_id": "ACC-PKI-002",
+      "product_id": "PROD-PKI-AAS",
+      "opportunity_name": "FinTrust, Managed PKI Controls and Automation",
+      "stage": "Discovery",
+      "amount_est_usd": 420000,
+      "close_date_est": "2026-07-01",
+      "use_case": "Policy-based issuance, integration with HSM, DevOps automation.",
+      "competitors_mentioned": [
+        "Venafi",
+        "Sectigo"
+      ],
+      "key_risks": [
+        "Compliance sign-off",
+        "Integration with existing HSM"
+      ],
+      "last_updated": "2026-02-05"
+    },
+    {
+      "opportunity_id": "OPP-PKI-003",
+      "account_id": "ACC-PKI-003",
+      "product_id": "PROD-PKI-AAS",
+      "opportunity_name": "AeroFleet, Hybrid PKI for Constrained Environments",
+      "stage": "Evaluation",
+      "amount_est_usd": 160000,
+      "close_date_est": "2026-05-30",
+      "use_case": "Meet supplier compliance requirements, support ojline workflows, reduce CA admin burden.",
+      "competitors_mentioned": [
+        "Microsoft AD CS",
+        "EJBCA"
+      ],
+      "key_risks": [
+        "Air-gapped needs",
+        "Procurement complexity"
+      ],
+      "last_updated": "2026-02-02"
+    },
+    {
+      "opportunity_id": "OPP-PKI-004",
+      "account_id": "ACC-PKI-004",
+      "product_id": "PROD-PKI-AAS",
+      "opportunity_name": "MedTech IoT, Device Identity at Scale",
+      "stage": "Discovery",
+      "amount_est_usd": 85000,
+      "close_date_est": "2026-05-25",
+      "use_case": "Device certificates for onboarding and secure updates, reduce security questionnaire friction.",
+      "competitors_mentioned": [
+        "DigiCert device trust"
+      ],
+      "key_risks": [
+        "Team bandwidth",
+        "Time to value"
+      ],
+      "last_updated": "2026-02-06"
+    }
+  ],
+  "activities": [
+    {
+      "activity_id": "ACT-PIAM-001-01",
+      "account_id": "ACC-PIAM-001",
+      "related_opportunity_id": "OPP-PIAM-001",
+      "date": "2026-01-14",
+      "type": "Discovery call",
+      "participants_contact_ids": [
+        "CON-PIAM-001-A",
+        "CON-PIAM-001-B"
+      ],
+      "notes_raw": "Security desk complains about badge printing queues. Contractors show up without prereg. Current workaround is emailing PDFs. Elin wants pre-registration and faster badge pickup. Mikael asked about Entra SSO and how we handle visitor data retention.",
+      "outcome": "Agreed to map current workflow and define minimum data needed at check-in.",
+      "tags": [
+        "desk_bottleneck",
+        "contractors",
+        "SSO",
+        "data_retention"
+      ]
+    },
+    {
+      "activity_id": "ACT-PIAM-001-02",
+      "account_id": "ACC-PIAM-001",
+      "related_opportunity_id": "OPP-PIAM-001",
+      "date": "2026-01-21",
+      "type": "Demo",
+      "participants_contact_ids": [
+        "CON-PIAM-001-A"
+      ],
+      "notes_raw": "Elin liked kiosk flow and badge printing, but said they need multi-language for contractor base. Asked if we can pre-approve repeat vendors for 90 days. Mentioned they have 3 major plants, wants rollout sequencing.",
+      "outcome": "Action: provide deployment approach and licensing assumptions.",
+      "tags": [
+        "kiosk",
+        "badge_printing",
+        "multi_site",
+        "repeat_vendors"
+      ]
+    },
+    {
+      "activity_id": "ACT-PIAM-001-03",
+      "account_id": "ACC-PIAM-001",
+      "related_opportunity_id": "OPP-PIAM-001",
+      "date": "2026-01-28",
+      "type": "Technical deep dive",
+      "participants_contact_ids": [
+        "CON-PIAM-001-B"
+      ],
+      "notes_raw": "Mikael pushed hard on integrations: LenelS2, Entra, and ServiceNow. He is worried about duplicate identities for contractors. Also asked whether we can export audit logs monthly. He said Proxyclick quoted cheaper but felt less enterprise.",
+      "outcome": "Action: send integration diagram and audit export example.",
+      "tags": [
+        "integration",
+        "audit_export",
+        "identity_duplication",
+        "competitor"
+      ]
+    },
+    {
+      "activity_id": "ACT-PIAM-001-04",
+      "account_id": "ACC-PIAM-001",
+      "related_opportunity_id": "OPP-PIAM-001",
+      "date": "2026-02-03",
+      "type": "On-site workshop",
+      "participants_contact_ids": [
+        "CON-PIAM-001-A",
+        "CON-PIAM-001-B"
+      ],
+      "notes_raw": "Observed desk workflow. Biggest time sink is manual approvals from internal hosts. If host does not respond, contractor waits, then desk overrides and security hates that. Elin wants automated reminders to hosts. Mikael said: do not store passport numbers, only ID type + last 4 digits maybe.",
+      "outcome": "Defined data minimization rules and host reminder requirement.",
+      "tags": [
+        "approvals",
+        "reminders",
+        "PII_minimization",
+        "workflow_observation"
+      ]
+    },
+    {
+      "activity_id": "ACT-PIAM-001-05",
+      "account_id": "ACC-PIAM-001",
+      "related_opportunity_id": "OPP-PIAM-001",
+      "date": "2026-02-05",
+      "type": "Pricing discussion",
+      "participants_contact_ids": [
+        "CON-PIAM-001-A"
+      ],
+      "notes_raw": "Elin said budget exists if we can show desk time reduction and audit improvements. Asked for ROI framing. Also asked if we can start with one plant as pilot. She worries about training effort for desk staff.",
+      "outcome": "Agreed on pilot proposal and simple training plan.",
+      "tags": [
+        "ROI",
+        "pilot",
+        "adoption",
+        "training"
+      ]
+    },
+    {
+      "activity_id": "ACT-PIAM-001-06",
+      "account_id": "ACC-PIAM-001",
+      "related_opportunity_id": "OPP-PIAM-001",
+      "date": "2026-02-07",
+      "type": "Follow-up email",
+      "participants_contact_ids": [
+        "CON-PIAM-001-B"
+      ],
+      "notes_raw": "Mikael emailed: 'Need clarity on where logs are stored, how long, and who can access. Also can we integrate with contractor management system later?'",
+      "outcome": "Pending response from HID.",
+      "tags": [
+        "security_review",
+        "logging",
+        "future_integration"
+      ]
+    },
+    {
+      "activity_id": "ACT-PIAM-002-01",
+      "account_id": "ACC-PIAM-002",
+      "related_opportunity_id": "OPP-PIAM-002",
+      "date": "2026-01-16",
+      "type": "Discovery call",
+      "participants_contact_ids": [
+        "CON-PIAM-002-A",
+        "CON-PIAM-002-B"
+      ],
+      "notes_raw": "They have 6 sites, visitor process differs everywhere. Sara wants consistent policy. Jonas complained about staffing the desk, wants fewer manual steps. Mentioned a recent incident where a vendor wandered into restricted area due to unclear escort rules.",
+      "outcome": "Agreed to define minimum standard visitor workflow and escort policy.",
+      "tags": [
+        "multi_site",
+        "standardization",
+        "incident",
+        "escort_policy"
+      ]
+    },
+    {
+      "activity_id": "ACT-PIAM-002-02",
+      "account_id": "ACC-PIAM-002",
+      "related_opportunity_id": "OPP-PIAM-002",
+      "date": "2026-01-23",
+      "type": "Demo",
+      "participants_contact_ids": [
+        "CON-PIAM-002-A"
+      ],
+      "notes_raw": "Sara liked pre-registration and watchlist checks, asked about integration to access control (Genetec). Said they have many truck drivers and short visits, speed matters. Also asked: can approvals be done via mobile, not email.",
+      "outcome": "Action: provide mobile approval workflow options.",
+      "tags": [
+        "speed",
+        "drivers",
+        "mobile_approvals",
+        "access_control_integration"
+      ]
+    },
+    {
+      "activity_id": "ACT-PIAM-002-03",
+      "account_id": "ACC-PIAM-002",
+      "related_opportunity_id": "OPP-PIAM-002",
+      "date": "2026-01-30",
+      "type": "Requirements review",
+      "participants_contact_ids": [
+        "CON-PIAM-002-A",
+        "CON-PIAM-002-B"
+      ],
+      "notes_raw": "Jonas wants a simple dashboard: visitors today, incidents, no-shows. Sara wants reports per site and time period. They are scared of 'another system to maintain'. Asked if it can be admin-light.",
+      "outcome": "Outlined admin roles and reporting pack.",
+      "tags": [
+        "reporting",
+        "dashboards",
+        "admin_overhead"
+      ]
+    },
+    {
+      "activity_id": "ACT-PIAM-002-04",
+      "account_id": "ACC-PIAM-002",
+      "related_opportunity_id": "OPP-PIAM-002",
+      "date": "2026-02-02",
+      "type": "Competitive mention",
+      "participants_contact_ids": [
+        "CON-PIAM-002-B"
+      ],
+      "notes_raw": "Jonas: 'Sign In App is cheaper, but I do not trust it for security workflows'. He asked if we support incident documentation and attaching photos. Also asked about visitor NDAs at sign-in.",
+      "outcome": "Action: confirm NDA capture and incident attachments.",
+      "tags": [
+        "competitor",
+        "incident_reporting",
+        "NDA"
+      ]
+    },
+    {
+      "activity_id": "ACT-PIAM-002-05",
+      "account_id": "ACC-PIAM-002",
+      "related_opportunity_id": "OPP-PIAM-002",
+      "date": "2026-02-06",
+      "type": "Next steps call",
+      "participants_contact_ids": [
+        "CON-PIAM-002-A"
+      ],
+      "notes_raw": "Sara wants pilot at busiest site first. She asked how quickly we can deploy kiosks and printers. She also asked if we support 'contractor recurring visits' without re-entering data each time.",
+      "outcome": "Pilot scope agreed, pending internal approval.",
+      "tags": [
+        "pilot",
+        "deployment_speed",
+        "repeat_contractors"
+      ]
+    },
+    {
+      "activity_id": "ACT-PIAM-002-06",
+      "account_id": "ACC-PIAM-002",
+      "related_opportunity_id": "OPP-PIAM-002",
+      "date": "2026-02-07",
+      "type": "Internal note",
+      "participants_contact_ids": [],
+      "notes_raw": "Risk: Jonas might stall on budget. Sara is main driver. Need ROI angle: desk staffing and incident reduction.",
+      "outcome": "Plan to provide ROI calculator and staffing reduction estimate.",
+      "tags": [
+        "deal_risk",
+        "ROI",
+        "stakeholder_map"
+      ]
+    },
+    {
+      "activity_id": "ACT-PIAM-003-01",
+      "account_id": "ACC-PIAM-003",
+      "related_opportunity_id": "OPP-PIAM-003",
+      "date": "2026-01-10",
+      "type": "Discovery call",
+      "participants_contact_ids": [
+        "CON-PIAM-003-A",
+        "CON-PIAM-003-B"
+      ],
+      "notes_raw": "Nina: audits are painful, visitor logs are incomplete and scattered. Andre: wants SSO and minimal manual user mgmt. They have strict validation processes for any system touching regulated workflows.",
+      "outcome": "Agreed to define compliance evidence needs and validation boundaries.",
+      "tags": [
+        "compliance",
+        "audit",
+        "SSO",
+        "validation"
+      ]
+    },
+    {
+      "activity_id": "ACT-PIAM-003-02",
+      "account_id": "ACC-PIAM-003",
+      "related_opportunity_id": "OPP-PIAM-003",
+      "date": "2026-01-18",
+      "type": "Compliance Q&A",
+      "participants_contact_ids": [
+        "CON-PIAM-003-A"
+      ],
+      "notes_raw": "Nina asked where data is stored, who can access, retention defaults, and ability to export for auditors. She dislikes free-text notes because they can contain PII. Wants structured fields and redaction guidance.",
+      "outcome": "Action: propose structured templates and PII-safe guidance.",
+      "tags": [
+        "data_residency",
+        "retention",
+        "PII",
+        "structured_notes"
+      ]
+    },
+    {
+      "activity_id": "ACT-PIAM-003-03",
+      "account_id": "ACC-PIAM-003",
+      "related_opportunity_id": "OPP-PIAM-003",
+      "date": "2026-01-27",
+      "type": "Demo",
+      "participants_contact_ids": [
+        "CON-PIAM-003-B"
+      ],
+      "notes_raw": "Andre liked workflow automation, asked about integration with OnGuard. He wants 'vendor credential expiry reminders'. He also asked if we can map vendor company to repeated visits for faster check-in.",
+      "outcome": "Action: confirm vendor management capabilities and integration approach.",
+      "tags": [
+        "workflow",
+        "integration",
+        "vendor_management",
+        "reminders"
+      ]
+    },
+    {
+      "activity_id": "ACT-PIAM-003-04",
+      "account_id": "ACC-PIAM-003",
+      "related_opportunity_id": "OPP-PIAM-003",
+      "date": "2026-02-01",
+      "type": "Validation discussion",
+      "participants_contact_ids": [
+        "CON-PIAM-003-A",
+        "CON-PIAM-003-B"
+      ],
+      "notes_raw": "They will require documented test evidence. Nina wants monthly compliance reporting. Andre says: if implementation takes too long, they will pick the simpler product even if weaker.",
+      "outcome": "Aligned on phased rollout: minimal viable workflow first, validation later.",
+      "tags": [
+        "implementation_risk",
+        "phasing",
+        "compliance_reporting"
+      ]
+    },
+    {
+      "activity_id": "ACT-PIAM-003-05",
+      "account_id": "ACC-PIAM-003",
+      "related_opportunity_id": "OPP-PIAM-003",
+      "date": "2026-02-04",
+      "type": "Competitive mention",
+      "participants_contact_ids": [
+        "CON-PIAM-003-B"
+      ],
+      "notes_raw": "Andre said Proxyclick looks 'fine' but Nina does not trust it for audits. They want a vendor who can answer compliance questions without hand-waving.",
+      "outcome": "Action: provide compliance FAQ and sample audit export.",
+      "tags": [
+        "competitor",
+        "trust",
+        "audit_export"
+      ]
+    },
+    {
+      "activity_id": "ACT-PIAM-003-06",
+      "account_id": "ACC-PIAM-003",
+      "related_opportunity_id": "OPP-PIAM-003",
+      "date": "2026-02-07",
+      "type": "Internal note",
+      "participants_contact_ids": [],
+      "notes_raw": "VoC: Structured templates and data minimization are critical. Position as compliance-first visitor management, not 'just a sign-in tool'.",
+      "outcome": "Update messaging for regulated buyers.",
+      "tags": [
+        "VoC",
+        "positioning",
+        "regulated_industry"
+      ]
+    },
+    {
+      "activity_id": "ACT-PIAM-004-01",
+      "account_id": "ACC-PIAM-004",
+      "related_opportunity_id": "OPP-PIAM-004",
+      "date": "2026-01-12",
+      "type": "Discovery call",
+      "participants_contact_ids": [
+        "CON-PIAM-004-A",
+        "CON-PIAM-004-B"
+      ],
+      "notes_raw": "Karin described current process: emails, printed lists, manual phone calls. Oskar is skeptical about cloud, asked if on-prem exists. Karin wants something simple and accessible for non-technical staff.",
+      "outcome": "Agreed to focus on simplicity and explain deployment options clearly.",
+      "tags": [
+        "manual_process",
+        "simplicity",
+        "cloud_skepticism"
+      ]
+    },
+    {
+      "activity_id": "ACT-PIAM-004-02",
+      "account_id": "ACC-PIAM-004",
+      "related_opportunity_id": "OPP-PIAM-004",
+      "date": "2026-01-20",
+      "type": "Demo",
+      "participants_contact_ids": [
+        "CON-PIAM-004-A"
+      ],
+      "notes_raw": "Karin loved 'host invites visitor' flow. Asked if visitors can pre-fill details on phone. She wants accessibility and Swedish language support. She does not want complicated badge printing; simple stickers are fine.",
+      "outcome": "Action: confirm localization and lightweight badging options.",
+      "tags": [
+        "localization",
+        "accessibility",
+        "lightweight_badging"
+      ]
+    },
+    {
+      "activity_id": "ACT-PIAM-004-03",
+      "account_id": "ACC-PIAM-004",
+      "related_opportunity_id": "OPP-PIAM-004",
+      "date": "2026-01-29",
+      "type": "Security review",
+      "participants_contact_ids": [
+        "CON-PIAM-004-B"
+      ],
+      "notes_raw": "Oskar asked about data residency, encryption, and whether visitor photos are stored. He said public sector procurement will require clear documentation. He dislikes 'AI features'. Wants predictable behavior and audit logs.",
+      "outcome": "Action: provide security one-pager and data handling summary.",
+      "tags": [
+        "public_sector",
+        "security",
+        "audit_logs",
+        "data_residency"
+      ]
+    },
+    {
+      "activity_id": "ACT-PIAM-004-04",
+      "account_id": "ACC-PIAM-004",
+      "related_opportunity_id": "OPP-PIAM-004",
+      "date": "2026-02-03",
+      "type": "Scope discussion",
+      "participants_contact_ids": [
+        "CON-PIAM-004-A"
+      ],
+      "notes_raw": "Karin wants start small: one building. Biggest KPI is front desk time saved. She wants simple approval reminders and visitor list for each day.",
+      "outcome": "Pilot scope set, needs procurement timeline.",
+      "tags": [
+        "pilot",
+        "KPI",
+        "reminders",
+        "daily_list"
+      ]
+    },
+    {
+      "activity_id": "ACT-PIAM-004-05",
+      "account_id": "ACC-PIAM-004",
+      "related_opportunity_id": "OPP-PIAM-004",
+      "date": "2026-02-06",
+      "type": "Procurement note",
+      "participants_contact_ids": [
+        "CON-PIAM-004-B"
+      ],
+      "notes_raw": "Oskar said procurement will ask for hosting model and support SLA. Also asked if we can provide templates for DPIA.",
+      "outcome": "Action: gather procurement pack and DPIA template guidance.",
+      "tags": [
+        "procurement",
+        "SLA",
+        "DPIA"
+      ]
+    },
+    {
+      "activity_id": "ACT-PIAM-004-06",
+      "account_id": "ACC-PIAM-004",
+      "related_opportunity_id": "OPP-PIAM-004",
+      "date": "2026-02-07",
+      "type": "Internal note",
+      "participants_contact_ids": [],
+      "notes_raw": "VoC: Public sector cares about clarity, documentation, and language support. Avoid AI buzzwords in messaging.",
+      "outcome": "Adjust pitch language for this segment.",
+      "tags": [
+        "VoC",
+        "messaging",
+        "public_sector"
+      ]
+    },
+    {
+      "activity_id": "ACT-PKI-001-01",
+      "account_id": "ACC-PKI-001",
+      "related_opportunity_id": "OPP-PKI-001",
+      "date": "2026-01-09",
+      "type": "Discovery call",
+      "participants_contact_ids": [
+        "CON-PKI-001-A",
+        "CON-PKI-001-B"
+      ],
+      "notes_raw": "Hanna: outage last quarter due to expired cert on gateway. Petter: AD CS is a mess, ownership unclear, monitoring weak. They need automated renewal and alerting. OT devices complicate things.",
+      "outcome": "Agreed to inventory certificate landscape and define automation goals.",
+      "tags": [
+        "outage",
+        "expired_certs",
+        "monitoring",
+        "OT"
+      ]
+    },
+    {
+      "activity_id": "ACT-PKI-001-02",
+      "account_id": "ACC-PKI-001",
+      "related_opportunity_id": "OPP-PKI-001",
+      "date": "2026-01-17",
+      "type": "Technical deep dive",
+      "participants_contact_ids": [
+        "CON-PKI-001-B"
+      ],
+      "notes_raw": "Petter wants API-based issuance, integration to CMDB, and dashboards for upcoming expirations. Asked if we support multiple CAs and policy separation for OT vs IT.",
+      "outcome": "Action: provide architecture and monitoring story.",
+      "tags": [
+        "API",
+        "policy",
+        "dashboards",
+        "CMDB"
+      ]
+    },
+    {
+      "activity_id": "ACT-PKI-001-03",
+      "account_id": "ACC-PKI-001",
+      "related_opportunity_id": "OPP-PKI-001",
+      "date": "2026-01-25",
+      "type": "Stakeholder alignment",
+      "participants_contact_ids": [
+        "CON-PKI-001-A"
+      ],
+      "notes_raw": "Hanna is worried IT will ignore OT needs. She wants clear governance and escalation paths. She also asked about incident response if key compromise occurs.",
+      "outcome": "Define governance model and incident runbook expectations.",
+      "tags": [
+        "governance",
+        "incident_response",
+        "OT_IT_alignment"
+      ]
+    },
+    {
+      "activity_id": "ACT-PKI-001-04",
+      "account_id": "ACC-PKI-001",
+      "related_opportunity_id": "OPP-PKI-001",
+      "date": "2026-02-02",
+      "type": "Competitive mention",
+      "participants_contact_ids": [
+        "CON-PKI-001-B"
+      ],
+      "notes_raw": "Petter said Venafi is in the picture, perceived as 'heavy but proven'. They want to avoid long implementation. They also looked at DigiCert managed PKI.",
+      "outcome": "Action: position time-to-value and managed operations.",
+      "tags": [
+        "competitor",
+        "time_to_value",
+        "managed_service"
+      ]
+    },
+    {
+      "activity_id": "ACT-PKI-001-05",
+      "account_id": "ACC-PKI-001",
+      "related_opportunity_id": "OPP-PKI-001",
+      "date": "2026-02-06",
+      "type": "Solution workshop",
+      "participants_contact_ids": [
+        "CON-PKI-001-A",
+        "CON-PKI-001-B"
+      ],
+      "notes_raw": "They want renewal automation first, governance second. They asked for reporting: certificates expiring in 30/60/90 days, and policy violations. Hanna asked if we can enforce minimum crypto policies across vendors.",
+      "outcome": "Agreed on phased deliverables and reporting requirements.",
+      "tags": [
+        "reporting",
+        "automation",
+        "crypto_policy",
+        "phasing"
+      ]
+    },
+    {
+      "activity_id": "ACT-PKI-001-06",
+      "account_id": "ACC-PKI-001",
+      "related_opportunity_id": "OPP-PKI-001",
+      "date": "2026-02-07",
+      "type": "Internal note",
+      "participants_contact_ids": [],
+      "notes_raw": "VoC: Their biggest pain is operational reliability. Message around outage prevention, visibility, and automation. Avoid deep PKI theory in exec conversations.",
+      "outcome": "Update pitch narrative.",
+      "tags": [
+        "VoC",
+        "positioning",
+        "reliability"
+      ]
+    },
+    {
+      "activity_id": "ACT-PKI-002-01",
+      "account_id": "ACC-PKI-002",
+      "related_opportunity_id": "OPP-PKI-002",
+      "date": "2026-01-11",
+      "type": "Discovery call",
+      "participants_contact_ids": [
+        "CON-PKI-002-A",
+        "CON-PKI-002-B"
+      ],
+      "notes_raw": "Lea wants cert issuance automated in CI/CD and K8s. Marco wants separation of duties, audit trails, and evidence. They already have HSM and internal CA, but it is brittle and slow.",
+      "outcome": "Agreed to identify automation gaps and compliance constraints.",
+      "tags": [
+        "DevOps",
+        "Kubernetes",
+        "SoD",
+        "audit"
+      ]
+    },
+    {
+      "activity_id": "ACT-PKI-002-02",
+      "account_id": "ACC-PKI-002",
+      "related_opportunity_id": "OPP-PKI-002",
+      "date": "2026-01-19",
+      "type": "Workshop",
+      "participants_contact_ids": [
+        "CON-PKI-002-A"
+      ],
+      "notes_raw": "Lea said: 'I do not want humans approving cert requests'. Wants policy-as-code. Asked about ACME support and integration patterns.",
+      "outcome": "Action: confirm automation mechanisms and policy model.",
+      "tags": [
+        "policy_as_code",
+        "ACME",
+        "automation"
+      ]
+    },
+    {
+      "activity_id": "ACT-PKI-002-03",
+      "account_id": "ACC-PKI-002",
+      "related_opportunity_id": "OPP-PKI-002",
+      "date": "2026-01-28",
+      "type": "Risk review",
+      "participants_contact_ids": [
+        "CON-PKI-002-B"
+      ],
+      "notes_raw": "Marco asked about compliance reporting, key custody, and who can revoke certificates. He dislikes black-box automation without logs. He wants evidence exports for auditors.",
+      "outcome": "Action: provide controls mapping and reporting examples.",
+      "tags": [
+        "compliance",
+        "logging",
+        "revocation",
+        "audit_export"
+      ]
+    },
+    {
+      "activity_id": "ACT-PKI-002-04",
+      "account_id": "ACC-PKI-002",
+      "related_opportunity_id": "OPP-PKI-002",
+      "date": "2026-02-01",
+      "type": "Competitive mention",
+      "participants_contact_ids": [
+        "CON-PKI-002-A"
+      ],
+      "notes_raw": "Lea said Venafi is feature-rich but expensive and slow to deploy. They want a managed approach but not lose control. They asked: can we keep HSM in place.",
+      "outcome": "Position hybrid control with managed ops.",
+      "tags": [
+        "competitor",
+        "cost",
+        "deployment_speed",
+        "HSM"
+      ]
+    },
+    {
+      "activity_id": "ACT-PKI-002-05",
+      "account_id": "ACC-PKI-002",
+      "related_opportunity_id": "OPP-PKI-002",
+      "date": "2026-02-05",
+      "type": "Next steps",
+      "participants_contact_ids": [
+        "CON-PKI-002-A",
+        "CON-PKI-002-B"
+      ],
+      "notes_raw": "They want a pilot focused on Kubernetes cert automation plus audit reports. Marco wants sign-off gates for policy changes, not for each issuance event.",
+      "outcome": "Pilot definition drafted.",
+      "tags": [
+        "pilot",
+        "Kubernetes",
+        "policy_change_control"
+      ]
+    },
+    {
+      "activity_id": "ACT-PKI-002-06",
+      "account_id": "ACC-PKI-002",
+      "related_opportunity_id": "OPP-PKI-002",
+      "date": "2026-02-07",
+      "type": "Internal note",
+      "participants_contact_ids": [],
+      "notes_raw": "VoC: Two stakeholders, one wants speed, one wants control. Product messaging should explicitly cover both without sounding contradictory.",
+      "outcome": "Adjust talk track for technical and compliance buyers.",
+      "tags": [
+        "VoC",
+        "stakeholder_map",
+        "messaging"
+      ]
+    },
+    {
+      "activity_id": "ACT-PKI-003-01",
+      "account_id": "ACC-PKI-003",
+      "related_opportunity_id": "OPP-PKI-003",
+      "date": "2026-01-13",
+      "type": "Discovery call",
+      "participants_contact_ids": [
+        "CON-PKI-003-A",
+        "CON-PKI-003-B"
+      ],
+      "notes_raw": "Sofia needs supplier security compliance, Tomáš needs hybrid or ojline support. They have some air-gapped environments and embedded devices. They want fewer manual CA tasks.",
+      "outcome": "Agreed to map constraints and compliance requirements.",
+      "tags": [
+        "ojline",
+        "air_gapped",
+        "embedded",
+        "compliance"
+      ]
+    },
+    {
+      "activity_id": "ACT-PKI-003-02",
+      "account_id": "ACC-PKI-003",
+      "related_opportunity_id": "OPP-PKI-003",
+      "date": "2026-01-22",
+      "type": "Technical deep dive",
+      "participants_contact_ids": [
+        "CON-PKI-003-B"
+      ],
+      "notes_raw": "Tomáš asked if we support ojline issuance workflows or at least ojline validation. He hates solutions that assume constant connectivity. Also asked about certificate profiles for different device classes.",
+      "outcome": "Action: propose architecture for constrained environments.",
+      "tags": [
+        "constraints",
+        "device_profiles",
+        "ojline_workflows"
+      ]
+    },
+    {
+      "activity_id": "ACT-PKI-003-03",
+      "account_id": "ACC-PKI-003",
+      "related_opportunity_id": "OPP-PKI-003",
+      "date": "2026-01-31",
+      "type": "Compliance requirements",
+      "participants_contact_ids": [
+        "CON-PKI-003-A"
+      ],
+      "notes_raw": "Sofia asked for documentation they can send to primes. Wants clear statement of controls, audit logs, and key handling. She said procurement likes vendors with ready-made compliance packs.",
+      "outcome": "Action: prepare supplier security documentation pack.",
+      "tags": [
+        "documentation",
+        "compliance_pack",
+        "procurement"
+      ]
+    },
+    {
+      "activity_id": "ACT-PKI-003-04",
+      "account_id": "ACC-PKI-003",
+      "related_opportunity_id": "OPP-PKI-003",
+      "date": "2026-02-02",
+      "type": "Competitive mention",
+      "participants_contact_ids": [
+        "CON-PKI-003-B"
+      ],
+      "notes_raw": "Tomáš said AD CS is 'free but painful', EJBCA is flexible but requires expertise they do not have. They prefer managed service if ojline story is credible.",
+      "outcome": "Position managed operations with hybrid deployment options.",
+      "tags": [
+        "competitor",
+        "managed_service",
+        "hybrid"
+      ]
+    },
+    {
+      "activity_id": "ACT-PKI-003-05",
+      "account_id": "ACC-PKI-003",
+      "related_opportunity_id": "OPP-PKI-003",
+      "date": "2026-02-05",
+      "type": "Pilot planning",
+      "participants_contact_ids": [
+        "CON-PKI-003-A",
+        "CON-PKI-003-B"
+      ],
+      "notes_raw": "They want a pilot for one device class plus one internal service. Success metrics: fewer manual cert tasks, clear audit evidence, and no connectivity assumptions.",
+      "outcome": "Pilot scope agreed in principle.",
+      "tags": [
+        "pilot",
+        "success_metrics",
+        "audit_evidence"
+      ]
+    },
+    {
+      "activity_id": "ACT-PKI-003-06",
+      "account_id": "ACC-PKI-003",
+      "related_opportunity_id": "OPP-PKI-003",
+      "date": "2026-02-07",
+      "type": "Internal note",
+      "participants_contact_ids": [],
+      "notes_raw": "VoC: Ojline and documentation are the sale. If we cannot explain constrained env support in plain language, we lose them.",
+      "outcome": "Create constrained-environment explainer for sales.",
+      "tags": [
+        "VoC",
+        "ojline",
+        "sales_enablement"
+      ]
+    },
+    {
+      "activity_id": "ACT-PKI-004-01",
+      "account_id": "ACC-PKI-004",
+      "related_opportunity_id": "OPP-PKI-004",
+      "date": "2026-01-15",
+      "type": "Discovery call",
+      "participants_contact_ids": [
+        "CON-PKI-004-A",
+        "CON-PKI-004-B"
+      ],
+      "notes_raw": "Amir: customers are asking tough security questions. Lina: device certificates are handled ad hoc and renewal is manual. They want something managed and developer-friendly.",
+      "outcome": "Agreed to focus on developer experience and device lifecycle.",
+      "tags": [
+        "security_questionnaires",
+        "developer_experience",
+        "device_identity"
+      ]
+    },
+    {
+      "activity_id": "ACT-PKI-004-02",
+      "account_id": "ACC-PKI-004",
+      "related_opportunity_id": "OPP-PKI-004",
+      "date": "2026-01-24",
+      "type": "Technical Q&A",
+      "participants_contact_ids": [
+        "CON-PKI-004-B"
+      ],
+      "notes_raw": "Lina asked for APIs/SDKs, automation hooks, and how issuance ties into provisioning. She asked if we can help with documentation they can reuse in customer questionnaires.",
+      "outcome": "Action: provide API overview and questionnaire support artifacts.",
+      "tags": [
+        "API",
+        "SDK",
+        "provisioning",
+        "customer_docs"
+      ]
+    },
+    {
+      "activity_id": "ACT-PKI-004-03",
+      "account_id": "ACC-PKI-004",
+      "related_opportunity_id": "OPP-PKI-004",
+      "date": "2026-01-31",
+      "type": "Value framing",
+      "participants_contact_ids": [
+        "CON-PKI-004-A"
+      ],
+      "notes_raw": "Amir wants quick time-to-value, minimal ops. He said: 'We cannot hire PKI specialists'. Asked about pricing model and whether service scales with device count.",
+      "outcome": "Action: propose phased rollout and pricing assumptions.",
+      "tags": [
+        "time_to_value",
+        "pricing",
+        "scale",
+        "resource_constraints"
+      ]
+    },
+    {
+      "activity_id": "ACT-PKI-004-04",
+      "account_id": "ACC-PKI-004",
+      "related_opportunity_id": "OPP-PKI-004",
+      "date": "2026-02-03",
+      "type": "Competitive mention",
+      "participants_contact_ids": [
+        "CON-PKI-004-B"
+      ],
+      "notes_raw": "Lina mentioned DigiCert device trust. She said they do not want to integrate a complex enterprise suite. Wants simple onboarding and strong docs.",
+      "outcome": "Position simplicity and developer onboarding.",
+      "tags": [
+        "competitor",
+        "simplicity",
+        "docs"
+      ]
+    },
+    {
+      "activity_id": "ACT-PKI-004-05",
+      "account_id": "ACC-PKI-004",
+      "related_opportunity_id": "OPP-PKI-004",
+      "date": "2026-02-06",
+      "type": "Pilot planning",
+      "participants_contact_ids": [
+        "CON-PKI-004-A",
+        "CON-PKI-004-B"
+      ],
+      "notes_raw": "Pilot idea: one device line, integrate issuance into provisioning pipeline. Success: reduce manual steps, pass customer security reviews, and get renewal automation.",
+      "outcome": "Pilot scope drafted, awaiting internal prioritization.",
+      "tags": [
+        "pilot",
+        "automation",
+        "security_reviews",
+        "renewal"
+      ]
+    },
+    {
+      "activity_id": "ACT-PKI-004-06",
+      "account_id": "ACC-PKI-004",
+      "related_opportunity_id": "OPP-PKI-004",
+      "date": "2026-02-07",
+      "type": "Internal note",
+      "participants_contact_ids": [],
+      "notes_raw": "VoC: SMB buyers want managed + simple + documentation reuse. Make the product feel approachable, not like a cryptography thesis.",
+      "outcome": "Update messaging for SMB IoT segment.",
+      "tags": [
+        "VoC",
+        "SMB",
+        "positioning",
+        "docs_reuse"
+      ]
+    },
+    {
+      "activity_id": "ACT-PIAM-001-07",
+      "account_id": "ACC-PIAM-001",
+      "related_opportunity_id": "OPP-PIAM-001",
+      "date": "2026-02-08",
+      "type": "Recorded evaluation call (transcript)",
+      "participants_contact_ids": [
+        "CON-PIAM-001-A",
+        "CON-PIAM-001-B"
+      ],
+      "notes_raw": "Alex (HID): Thanks both for joining. I wanted to focus today on what a realistic first rollout would look like.\nElin: Sure. The main thing is still the security desk. Badge queues during shift changes are a big pain. Contractors arriving all at once and then waiting in line.\nAlex (HID): Understood. If we could cut that waiting time in half, would that be a strong enough outcome for you to justify the project internally?\nElin: Yes, if we can show fewer bottlenecks and fewer people standing around the desk.\nMikael: I agree, but I am also worried about identity duplication. We already have contractors in LenelS2 and Entra. I do not want a third place where they live.\nAlex (HID): So integrating with LenelS2 and Entra is a must, not a nice-to-have.\nMikael: Exactly. And I want a clear answer on where visitor and contractor data is stored and for how long. Elin does not want us keeping copies of passports forever.\nElin: Correct. We only need enough data for audits, not full documents.\nAlex (HID): On that point, how do you feel about structured fields instead of free-text notes at the desk?\nElin: That would actually help. Right now people type whatever they want.\nMikael: As long as the system does not slow them down, structured fields are fine.\nAlex (HID): You mentioned Proxyclick earlier. Are they still in the running?\nMikael: They are cheaper. But they felt more like a generic visitor app, not something that fits our contractor use case.\nElin: And their answers on audit logs were vague.\nAlex (HID): So your main concerns are: integration, data retention, and not adding extra work for the desk.\nElin: Yes, and training. If the interface looks complicated, we will have resistance.\nAlex (HID): If we propose a pilot at one plant, with a simple kiosk flow, Swedish and English language support, pre-registration, and host reminders, would that be a good starting point?\nElin: That sounds reasonable.\nMikael: As long as it does not create another identity silo and we have a clear audit export every month.",
+      "outcome": "Tentative alignment on a one-plant pilot focused on queue reduction, integrations, and minimal data retention, pending detailed pilot proposal.",
+      "tags": [
+        "transcript",
+        "queue_pain",
+        "desk_bottleneck",
+        "integration",
+        "data_retention",
+        "PII_minimization",
+        "training_effort",
+        "structured_fields",
+        "competitor",
+        "Proxyclick",
+        "pilot",
+        "VoC_source"
+      ]
+    },
+    {
+      "activity_id": "ACT-PKI-002-07",
+      "account_id": "ACC-PKI-002",
+      "related_opportunity_id": "OPP-PKI-002",
+      "date": "2026-02-08",
+      "type": "Recorded design workshop (transcript)",
+      "participants_contact_ids": [
+        "CON-PKI-002-A",
+        "CON-PKI-002-B"
+      ],
+      "notes_raw": "Alex (HID): Thanks for making the time. I would like to reconcile the DevOps needs and the compliance needs, so we do not design something that only one of you can live with.\nLea: Good. My main issue is manual steps. Right now engineers open tickets for certs, wait days, and sometimes they expire before we even rotate them in staging.\nMarco: And my main issue is visibility. When certs are issued through ad hoc scripts, I have no audit trail and no clear owner.\nAlex (HID): So speed and control.\nLea: Exactly. I want cert issuance to be fully automated in CI/CD and Kubernetes. No humans clicking approve every time.\nMarco: I am not against automation. I just need to see who changed what policy and when.\nAlex (HID): Understood. From our side, we can separate the two: policies are approved and audited, individual cert requests follow those policies automatically.\nMarco: That sounds closer to what we need.\nLea: We also looked at Venafi. It does a lot, but the impression is heavy implementation, long project.\nMarco: And expensive.\nAlex (HID): If we can show a quicker time-to-value, using your existing HSM and integrating into your pipelines, would that address most of your concerns?\nLea: For me, yes, if you support ACME or similar patterns and a policy-as-code model.\nMarco: For me, I need: audit logs, evidence exports, and clear separation of duties. I do not want developers to be able to silently change crypto policies.\nAlex (HID): So developers should be able to request and consume certs within guardrails, but policy changes require a different workflow and explicit approval.\nMarco: Correct.\nLea: I can live with that, as long as we are not waiting on a committee for every single cert.\nAlex (HID): That is the idea: approve the guardrails once, then let automation run.\nMarco: Then the remaining question is reporting: can I see which services are out of policy or close to expiry.\nAlex (HID): Yes, we can surface that as dashboards or reports.\nLea: If we can start with Kubernetes cert automation and basic reporting, and expand later, that is a good pilot for us.\nMarco: Agreed, as long as the reporting is strong enough for auditors.",
+      "outcome": "Agreed in principle on a pilot focused on Kubernetes cert automation with strong policy change controls and audit reporting, positioned as faster-to-value than Venafi.",
+      "tags": [
+        "transcript",
+        "DevOps",
+        "Kubernetes",
+        "automation",
+        "policy_as_code",
+        "SoD",
+        "audit",
+        "reporting",
+        "competitor",
+        "Venafi",
+        "time_to_value",
+        "pilot",
+        "VoC_source"
+      ]
+    },
+    {
+      "activity_id": "ACT-PIAM-002-07",
+      "account_id": "ACC-PIAM-002",
+      "related_opportunity_id": "OPP-PIAM-002",
+      "date": "2026-02-08",
+      "type": "Recorded process workshop (transcript)",
+      "participants_contact_ids": [
+        "CON-PIAM-002-A",
+        "CON-PIAM-002-B"
+      ],
+      "notes_raw": "Alex (HID): Thanks both. Today I would like to walk through a typical day at your busiest site and see where visitors and drivers get stuck.\nSara: Morning is worst. Between seven and nine we have a mix of contractors, truck drivers, and regular visitors. The process is different in every gatehouse.\nJonas: That is the core problem. Each site invented its own workflow over the years.\nAlex (HID): If you had to summarize the impact, what hurts the most?\nSara: Inconsistency. Some guards are strict, some are relaxed. That is a risk. Also, too much time spent looking up who is allowed where.\nJonas: And desk staffing. We constantly argue about having two people versus one at the desk.\nAlex (HID): Understood. You mentioned earlier you want a standard visitor workflow across all six sites.\nSara: Yes. Same steps, same data captured, same escort rules.\nAlex (HID): How do incidents get recorded today if something goes wrong?\nSara: Usually an email, sometimes nothing. There is no proper incident form. Photos are sometimes on someone’s phone.\nJonas: Which is exactly what I do not want.\nAlex (HID): So a structured way to log incidents and attach photos at the time of check-in would help.\nSara: Definitely. Also, we have a lot of short visits for drivers. They just pick up or drop off. Speed is critical, we cannot ask them ten questions at the kiosk.\nAlex (HID): So for drivers you might want a lighter flow, maybe pre-registered by the transport company.\nJonas: Yes, that would be ideal.\nAlex (HID): You mentioned Sign In App in a previous call. Are they still being considered?\nJonas: They are cheaper. But I do not trust it to handle security workflows, especially incidents and escorts.\nSara: It feels more like a reception gadget, not a security tool.\nAlex (HID): If we could give you one standardized workflow template, reporting per site and per period, an incident log with photos, and a lighter path for drivers, would that cover the main needs?\nSara: As long as it is fast at the desk.\nJonas: And admin-light. I do not want another system that needs a full-time admin.\nAlex (HID): So key points are: multi-site standardization, incident documentation with evidence, high-speed handling for drivers, and low admin overhead.\nSara: Correct.\nJonas: And we need a clear story on ROI. Fewer incidents and less desk time.",
+      "outcome": "Aligned on target workflow: standardized visitor process across sites, incident logging with photos, lightweight flow for drivers, and admin-light configuration, pending ROI proposal.",
+      "tags": [
+        "transcript",
+        "multi_site",
+        "standardization",
+        "incident_reporting",
+        "drivers",
+        "speed",
+        "ROI",
+        "admin_overhead",
+        "competitor",
+        "Sign_In_App",
+        "VoC_source"
+      ]
+    },
+    {
+      "activity_id": "ACT-PKI-004-07",
+      "account_id": "ACC-PKI-004",
+      "related_opportunity_id": "OPP-PKI-004",
+      "date": "2026-02-08",
+      "type": "Recorded solution discussion (transcript)",
+      "participants_contact_ids": [
+        "CON-PKI-004-A",
+        "CON-PKI-004-B"
+      ],
+      "notes_raw": "Alex (HID): Thanks Amir, thanks Lina. I would like to get concrete on what a first phase could look like for device identity.\nAmir: For me it is simple. Customers are sending longer and longer security questionnaires. We spend a lot of time explaining how we do certificates and updates.\nLina: And internally, device certs are still mostly manual. We have scripts, but they are fragile. When something breaks, only one or two people know how to fix it.\nAlex (HID): So you have both external pressure from customers and internal fragility.\nAmir: Exactly. We cannot hire a PKI team. Whatever we do needs to be managed and not require a cryptography PhD.\nLina: At the same time, I do not want a black box. I want APIs and clear hooks into our provisioning pipeline in AWS.\nAlex (HID): Understood. On the technical side, what is the ideal developer experience for you, Lina?\nLina: We provision a new device, call an API, get a certificate, and the device is onboarded. Renewal should be automatic. If a device is compromised, we trigger revocation through another API.\nAlex (HID): And documentation?\nLina: We need diagrams and text we can reuse in customer security questionnaires. Right now I am writing those from scratch every time.\nAmir: That is a big time sink.\nAlex (HID): You mentioned DigiCert device trust earlier. What is your impression so far?\nLina: It looks solid, but feels like part of a bigger enterprise suite. We do not want to spend six months integrating and configuring.\nAmir: And we cannot afford a long project that eats bandwidth from the dev team.\nAlex (HID): So time-to-value and simplicity are key.\nLina: Yes. Also pricing. We need something that scales with device count in a predictable way.\nAlex (HID): If we propose a pilot for one device line, integrate issuance and renewal into your existing provisioning flow, give you reusable customer-facing documentation, and keep the day-to-day work mostly on our side, would that match what you are looking for?\nAmir: That is the right direction, as long as it does not explode our costs when volumes grow.\nLina: And as long as I can actually read the docs without it being a cryptography thesis.\nAlex (HID): So main requirements are: developer-friendly APIs, managed operations, reusable documentation for security questionnaires, predictable pricing that scales with device count, and a short path to pilot.\nAmir: Yes, plus minimal operational overhead.\nLina: If we can tick those boxes, I am happy to pilot.",
+      "outcome": "Consensus on a pilot focused on one device line with API-driven issuance and renewal integrated into existing provisioning, strong reusable documentation for customer questionnaires, and a simple, scalable pricing and operations model.",
+      "tags": [
+        "transcript",
+        "device_identity",
+        "automation",
+        "API",
+        "developer_experience",
+        "security_questionnaires",
+        "managed_service",
+        "time_to_value",
+        "pricing",
+        "scale",
+        "competitor",
+        "DigiCert_device_trust",
+        "VoC_source"
+      ]
+    },
+    {
+      "activity_id": "mtg-058c33e7",
+      "account_id": "ACC-PIAM-001",
+      "related_opportunity_id": "OPP-PIAM-001",
+      "date": "2026-02-09",
+      "type": "Test recorded meeting",
+      "participants_contact_ids": [],
+      "notes_raw": "Alex: Thanks. Elin: Biggest pain is badge queue. We need reminders.",
+      "tags": [
+        "participant:Alex Berg",
+        "participant:Elin Sundberg"
+      ],
+      "insights": {
+        "summary": "Test summary",
+        "painPoints": [
+          {
+            "text": "Badge queue",
+            "snippet": "Biggest pain is badge queue"
+          }
+        ],
+        "featureRequests": [
+          {
+            "text": "Host reminders",
+            "snippet": "We need reminders"
+          }
+        ],
+        "objections": [],
+        "competitors": [],
+        "actionItems": [
+          {
+            "text": "Send proposal",
+            "owner": "Alex",
+            "done": false
+          }
+        ]
+      }
+    },
+    {
+      "activity_id": "mtg-7f8cf90a",
+      "account_id": "ACC-PIAM-001",
+      "related_opportunity_id": "OPP-PIAM-001",
+      "date": "2026-02-09",
+      "type": "Test recorded meeting",
+      "participants_contact_ids": [],
+      "notes_raw": "Alex: Thanks. Elin: Biggest pain is badge queue. We need reminders.",
+      "tags": [
+        "participant:Alex Berg",
+        "participant:Elin Sundberg"
+      ],
+      "insights": {
+        "summary": "Test summary",
+        "painPoints": [
+          {
+            "text": "Badge queue",
+            "snippet": "Biggest pain is badge queue"
+          }
+        ],
+        "featureRequests": [
+          {
+            "text": "Host reminders",
+            "snippet": "We need reminders"
+          }
+        ],
+        "objections": [],
+        "competitors": [],
+        "actionItems": [
+          {
+            "text": "Send proposal",
+            "owner": "Alex",
+            "done": false
+          }
+        ]
+      }
+    }
+  ]
+}

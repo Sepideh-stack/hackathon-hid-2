@@ -9,8 +9,13 @@ export async function GET(request: NextRequest) {
     opportunityId: searchParams.get('opportunityId') || undefined,
     accountId: searchParams.get('accountId') || undefined,
     product: searchParams.get('product') || undefined,
+    productId: searchParams.get('productId') || undefined,
+    stage: searchParams.get('stage') || undefined,
+    region: searchParams.get('region') || undefined,
+    industry: searchParams.get('industry') || undefined,
     dateFrom: searchParams.get('dateFrom') || undefined,
     dateTo: searchParams.get('dateTo') || undefined,
+    includeInternal: searchParams.get('includeInternal') === 'true' ? true : undefined,
   };
   return NextResponse.json(getMeetings(filters));
 }
@@ -26,6 +31,9 @@ export async function POST(request: NextRequest) {
     participants: body.participants || [],
     transcriptRaw: body.transcriptRaw,
     insights: body.insights || null,
+    activityType: body.activityType || body.title,
+    tags: body.tags || [],
+    outcome: body.outcome,
   };
   saveMeeting(meeting);
   return NextResponse.json(meeting, { status: 201 });

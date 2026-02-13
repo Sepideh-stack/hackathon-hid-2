@@ -1,17 +1,45 @@
 export interface Account {
-  id: string;
-  name: string;
   industry: string;
   region: string;
+  id: string;
+  name: string;
+  companySize?: string;
+  customerTier?: string;
+  currentStack?: string[];
+  painPoints?: string[];
+  primaryProductsOfInterest?: string[];
+}
+
+export interface Product {
+  id: string;
+  name: string;
+  descriptionShort?: string;
+}
+
+export interface Contact {
+  id: string;
+  accountId: string;
+  name: string;
+  role?: string;
+  seniority?: string;
+  email?: string;
+  influenceLevel?: string;
+  notes?: string;
 }
 
 export interface Opportunity {
   id: string;
   accountId: string;
   name: string;
-  product: string;
+  product: string; // product name for UI filter
+  productId?: string;
   stage: string;
   value: number;
+  closeDateEst?: string;
+  useCase?: string;
+  competitorsMentioned?: string[];
+  keyRisks?: string[];
+  lastUpdated?: string;
 }
 
 export interface Meeting {
@@ -23,6 +51,11 @@ export interface Meeting {
   participants: string[];
   transcriptRaw: string;
   insights: ExtractedInsights | null;
+
+  // Hackathon CRM fields
+  activityType?: string;
+  tags?: string[];
+  outcome?: string;
 }
 
 export interface ExtractedInsights {

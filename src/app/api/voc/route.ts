@@ -6,6 +6,10 @@ export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const filters = {
     product: searchParams.get('product') || undefined,
+    productId: searchParams.get('productId') || undefined,
+    stage: searchParams.get('stage') || undefined,
+    region: searchParams.get('region') || undefined,
+    industry: searchParams.get('industry') || undefined,
     dateFrom: searchParams.get('dateFrom') || undefined,
     dateTo: searchParams.get('dateTo') || undefined,
   };
