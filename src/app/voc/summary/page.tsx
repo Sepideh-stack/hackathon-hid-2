@@ -3,6 +3,19 @@
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { VocData } from "@/lib/types";
+import { 
+  BarChart, 
+  Bar, 
+  XAxis, 
+  YAxis, 
+  CartesianGrid, 
+  Tooltip, 
+  ResponsiveContainer, 
+  PieChart, 
+  Pie, 
+  Cell, 
+  Legend 
+} from "recharts";
 
 export default function VocSummaryPage() {
   const searchParams = useSearchParams();
@@ -14,6 +27,23 @@ export default function VocSummaryPage() {
   const dateTo = searchParams.get("dateTo") || "";
 
   const [vocData, setVocData] = useState<VocData | null>(null);
+
+  // Chart colors
+  const COLORS = ['#ef4444', '#f97316', '#eab308', '#22c55e', '#3b82f6', '#8b5cf6', '#ec4899'];
+
+  // Data transformation functions
+  const transformForBarChart = (data: Array<{ text: string; count: number }>) => 
+    data.slice(0, 5).map(item => ({
+      text: item.text.length > 30 ? item.text.substring(0, 30) + '...' : item.text,
+      count: item.count
+    }));
+
+  const transformForPieChart = (data: Array<{ name: string; count: number }>) => 
+    data.slice(0, 5).map((item, index) => ({
+      name: item.name,
+      value: item.count,
+      fill: COLORS[index % COLORS.length]
+    }));
 
   useEffect(() => {
     const params = new URLSearchParams();
@@ -87,16 +117,23 @@ export default function VocSummaryPage() {
             <span className="w-3 h-3 bg-red-500 rounded-full" />
             Top Pain Points
           </h2>
-          <div className="space-y-3">
+          <div className="h-64">
             {vocData.painPoints.length === 0 ? (
               <p className="text-sm text-slate-400 italic">No pain points found</p>
             ) : (
-              vocData.painPoints.slice(0, 5).map((item, i) => (
-                <div key={i} className="border-b border-slate-100 dark:border-slate-700 last:border-0 pb-2 last:pb-0">
-                  <p className="text-sm text-slate-700 dark:text-[color:var(--foreground)] font-medium">{item.text}</p>
-                  <p className="text-xs text-slate-500 dark:text-[color:var(--muted-foreground)] mt-1">{item.count} mention{item.count !== 1 ? 's' : ''}</p>
-                </div>
-              ))
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart
+                  data={transformForBarChart(vocData.painPoints)}
+                  layout="vertical"
+                  margin={{ top: 5, right: 30, left: 100, bottom: 5 }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis type="number" domain={[0, 'dataMax']} />
+                  <YAxis dataKey="text" type="category" width={100} />
+                  <Tooltip />
+                  <Bar dataKey="count" fill="#ef4444" />
+                </BarChart>
+              </ResponsiveContainer>
             )}
           </div>
         </div>
@@ -105,18 +142,25 @@ export default function VocSummaryPage() {
         <div className="bg-white dark:bg-[color:var(--card)] border border-slate-200 dark:border-[color:var(--border)] rounded-xl p-6 animate-fade-in-up [animation-delay:60ms]">
           <h2 className="font-semibold text-slate-900 dark:text-[color:var(--card-foreground)] mb-4 flex items-center gap-2">
             <span className="w-3 h-3 bg-green-500 rounded-full" />
-            Top Feature Requests
+            TopBar Feature Requests
           </h2>
-          <div className="space-y-3">
+          <div className="h-64">
             {vocData.featureRequests.length === 0 ? (
               <p className="text-sm text-slate-400 italic">No feature requests found</p>
             ) : (
-              vocData.featureRequests.slice(0, 5).map((item, i) => (
-                <div key={i} className="border-b border-slate-100 dark:border-slate-700 last:border-0 pb-2 last:pb-0">
-                  <p className="text-sm text-slate-700 dark:text-[color:var(--foreground)] font-medium">{item.text}</p>
-                  <p className="text-xs text-slate-500 dark:text-[color:var(--muted-foreground)] mt-1">{item.count} mention{item.count !== 1 ? 's' : ''}</p>
-                </div>
-              ))
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart
+                  data={transformForBarChart(vocData.featureRequests)}
+                  layout="vertical"
+                  margin={{ top: 5, right: 30, left: 100, bottom: 5 }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis type="number" domain={[0, 'dataMax']} />
+                  <YAxis dataKey="text" type="category" width={100} />
+                  <Tooltip />
+                  <Bar dataKey="count" fill="#22c55e" />
+                </BarChart>
+              </ResponsiveContainer>
             )}
           </div>
         </div>
@@ -127,16 +171,23 @@ export default function VocSummaryPage() {
             <span className="w-3 h-3 bg-amber-500 rounded-full" />
             Top Objections
           </h2>
-          <div className="space-y-3">
+          <div className="h-64">
             {vocData.objections.length === 0 ? (
               <p className="text-sm text-slate-400 italic">No objections found</p>
             ) : (
-              vocData.objections.slice(0, 5).map((item, i) => (
-                <div key={i} className="border-b border-slate-100 dark:border-slate-700 last:border-0 pb-2 last:pb-0">
-                  <p className="text-sm text-slate-700 dark:text-[color:var(--foreground)] font-medium">{item.text}</p>
-                  <p className="text-xs text-slate-500 dark:text-[color:var(--muted-foreground)] mt-1">{item.count} mention{item.count !== 1 ? 's' : ''}</p>
-                </div>
-              ))
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart
+                  data={transformForBarChart(vocData.objections)}
+                  layout="vertical"
+                  margin={{ top: 5, right: 30, left: 100, bottom: 5 }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis type="number" domain={[0, 'dataMax']} />
+                  <YAxis dataKey="text" type="category" width={100} />
+                  <Tooltip />
+                  <Bar dataKey="count" fill="#f59e0b" />
+                </BarChart>
+              </ResponsiveContainer>
             )}
           </div>
         </div>
@@ -147,16 +198,30 @@ export default function VocSummaryPage() {
             <span className="w-3 h-3 bg-purple-500 rounded-full" />
             Competitors
           </h2>
-          <div className="space-y-3">
+          <div className="h-64">
             {vocData.competitors.length === 0 ? (
               <p className="text-sm text-slate-400 italic">No competitors mentioned</p>
             ) : (
-              vocData.competitors.slice(0, 5).map((item, i) => (
-                <div key={i} className="border-b border-slate-100 dark:border-slate-700 last:border-0 pb-2 last:pb-0">
-                  <p className="text-sm text-slate-700 dark:text-[color:var(--foreground)] font-medium">{item.name}</p>
-                  <p className="text-xs text-slate-500 dark:text-[color:var(--muted-foreground)] mt-1">{item.count} mention{item.count !== 1 ? 's' : ''}</p>
-                </div>
-              ))
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie
+                    data={transformForPieChart(vocData.competitors)}
+                    cx="50%"
+                    cy="50%"
+                    labelLine={false}
+                    label={({ name, percent }) => `${name} ${percent ? ((percent * 100).toFixed(0)) : '0'}%`}
+                    outerRadius={80}
+                    fill="#8884d8"
+                    dataKey="value"
+                  >
+                    {transformForPieChart(vocData.competitors).map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.fill} />
+                    ))}
+                  </Pie>
+                  <Tooltip />
+                  <Legend />
+                </PieChart>
+              </ResponsiveContainer>
             )}
           </div>
         </div>
