@@ -1,6 +1,6 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { VocData } from "@/lib/types";
 import { 
@@ -19,6 +19,7 @@ import {
 
 export default function VocSummaryPage() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   
   const productId = searchParams.get("productId") || "";
   const region = searchParams.get("region") || "";
@@ -28,8 +29,8 @@ export default function VocSummaryPage() {
 
   const [vocData, setVocData] = useState<VocData | null>(null);
 
-  // Chart colors
-  const COLORS = ['#ef4444', '#f97316', '#eab308', '#22c55e', '#3b82f6', '#8b5cf6', '#ec4899'];
+  // Chart colors - Purple gradient with high saturation for top sections
+  const COLORS = ['#7c3aed', '#8b5cf6', '#a78bfa', '#c4b5fd', '#ddd6fe', '#ede9fe', '#f3f4f6'];
 
   // Data transformation functions
   const transformForBarChart = (data: Array<{ text: string; count: number }>) => 
@@ -72,6 +73,19 @@ export default function VocSummaryPage() {
 
   return (
     <div>
+      {/* Return Button */}
+      <div className="mb-4">
+        <button
+          onClick={() => router.push('/voc')}
+          className="px-4 py-2 bg-slate-600 text-white rounded-lg text-sm font-medium hover:bg-slate-700 transition-colors flex items-center gap-2 active:scale-[0.98]"
+        >
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+          </svg>
+          Return
+        </button>
+      </div>
+      
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-slate-900 dark:text-[color:var(--foreground)] animate-fade-in-up">VoC Strategic Summary</h1>
         
@@ -115,7 +129,7 @@ export default function VocSummaryPage() {
         <div className="bg-white dark:bg-[color:var(--card)] border border-slate-200 dark:border-[color:var(--border)] rounded-xl p-6 animate-fade-in-up">
           <h2 className="font-semibold text-slate-900 dark:text-[color:var(--card-foreground)] mb-4 flex items-center gap-2">
             <span className="w-3 h-3 bg-red-500 rounded-full" />
-            Top Pain Points
+            Top 5 Pain Points
           </h2>
           <div className="h-64">
             {vocData.painPoints.length === 0 ? (
@@ -142,7 +156,7 @@ export default function VocSummaryPage() {
         <div className="bg-white dark:bg-[color:var(--card)] border border-slate-200 dark:border-[color:var(--border)] rounded-xl p-6 animate-fade-in-up [animation-delay:60ms]">
           <h2 className="font-semibold text-slate-900 dark:text-[color:var(--card-foreground)] mb-4 flex items-center gap-2">
             <span className="w-3 h-3 bg-green-500 rounded-full" />
-            TopBar Feature Requests
+            Top 5 Feature Requests
           </h2>
           <div className="h-64">
             {vocData.featureRequests.length === 0 ? (
@@ -169,7 +183,7 @@ export default function VocSummaryPage() {
         <div className="bg-white dark:bg-[color:var(--card)] border border-slate-200 dark:border-[color:var(--border)] rounded-xl p-6 animate-fade-in-up [animation-delay:120ms]">
           <h2 className="font-semibold text-slate-900 dark:text-[color:var(--card-foreground)] mb-4 flex items-center gap-2">
             <span className="w-3 h-3 bg-amber-500 rounded-full" />
-            Top Objections
+            Top 5 Objections
           </h2>
           <div className="h-64">
             {vocData.objections.length === 0 ? (

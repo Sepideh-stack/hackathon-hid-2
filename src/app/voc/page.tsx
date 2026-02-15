@@ -179,7 +179,7 @@ export default function VocDashboardPage() {
         <div className="bg-white dark:bg-[color:var(--card)] border border-slate-200 dark:border-[color:var(--border)] rounded-xl p-6 animate-fade-in-up">
           <h2 className="font-semibold text-slate-900 dark:text-[color:var(--card-foreground)] mb-4 flex items-center gap-2">
             <span className="w-3 h-3 bg-red-500 rounded-full" />
-            Top Pain Points
+            Pain Points
           </h2>
           <div className="space-y-2">
             {vocData.painPoints.length === 0 ? (
@@ -219,7 +219,7 @@ export default function VocDashboardPage() {
         <div className="bg-white dark:bg-[color:var(--card)] border border-slate-200 dark:border-[color:var(--border)] rounded-xl p-6 animate-fade-in-up [animation-delay:60ms]">
           <h2 className="font-semibold text-slate-900 dark:text-[color:var(--card-foreground)] mb-4 flex items-center gap-2">
             <span className="w-3 h-3 bg-green-500 rounded-full" />
-            Top Feature Requests
+             Feature Requests
           </h2>
           <div className="space-y-2">
             {vocData.featureRequests.length === 0 ? (
@@ -259,7 +259,7 @@ export default function VocDashboardPage() {
         <div className="bg-white dark:bg-[color:var(--card)] border border-slate-200 dark:border-[color:var(--border)] rounded-xl p-6 animate-fade-in-up [animation-delay:120ms]">
           <h2 className="font-semibold text-slate-900 dark:text-[color:var(--card-foreground)] mb-4 flex items-center gap-2">
             <span className="w-3 h-3 bg-amber-500 rounded-full" />
-            Top Objections
+           Objections
           </h2>
           <div className="space-y-2">
             {vocData.objections.length === 0 ? (
