@@ -143,7 +143,15 @@ export default function VocDashboardPage() {
           />
         </div>
         <button
-          onClick={() => router.push('/voc/summary')}
+          onClick={() => {
+            const params = new URLSearchParams();
+            if (productId) params.set("productId", productId);
+            if (region) params.set("region", region);
+            if (stage) params.set("stage", stage);
+            if (dateFrom) params.set("dateFrom", dateFrom);
+            if (dateTo) params.set("dateTo", dateTo);
+            router.push(`/voc/summary?${params.toString()}`);
+          }}
           className="px-4 py-2 bg-purple-600 text-white rounded-lg text-sm font-medium hover:bg-purple-700 transition-colors active:scale-[0.98]"
         >
           Generate VoC Summary
