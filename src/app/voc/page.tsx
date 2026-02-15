@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { Product, VocData } from "@/lib/types";
 
 export default function VocDashboardPage() {
+  const router = useRouter();
   const [vocData, setVocData] = useState<VocData | null>(null);
   const [products, setProducts] = useState<Product[]>([]);
   const [productId, setProductId] = useState<string>("");
@@ -141,11 +143,10 @@ export default function VocDashboardPage() {
           />
         </div>
         <button
-          onClick={handleGenerateSummary}
-          disabled={summaryLoading}
-          className="px-4 py-2 bg-purple-600 text-white rounded-lg text-sm font-medium hover:bg-purple-700 transition-colors disabled:opacity-50 active:scale-[0.98]"
+          onClick={() => router.push('/voc/summary')}
+          className="px-4 py-2 bg-purple-600 text-white rounded-lg text-sm font-medium hover:bg-purple-700 transition-colors active:scale-[0.98]"
         >
-          {summaryLoading ? "Generating..." : "Generate VoC Summary"}
+          Generate VoC Summary
         </button>
       </div>
 
