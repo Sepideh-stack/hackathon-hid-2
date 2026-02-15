@@ -62,6 +62,49 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## 🔄 Recent Updates (sepideh-feature)
+
+### 🆕 VoC Strategic Summary Page
+
+A new executive summary page is available at `/voc/summary`.
+
+Features:
+
+- Filter-aware navigation (Product, Region, Stage, Date)
+- URL-based filter persistence
+- Strategic insight block based on selected stage
+- Return button to navigate back to the VoC dashboard
+
+---
+
+### 📊 Interactive Data Visualizations
+
+Added data visualizations using **Recharts**:
+
+- Top 5 Pain Points – Horizontal bar chart
+- Top 5 Feature Requests – Horizontal bar chart
+- Top 5 Objections – Horizontal bar chart
+- Top 5 Competitors – Purple gradient pie chart
+
+Charts dynamically update based on selected filters.
+
+---
+
+### 🎯 Stage-Based Strategic Insight
+
+The summary page provides contextual executive insights:
+
+- **Discovery stage** → Focus on early problem validation and pain signals
+- **Evaluation stage** → Focus on competitive positioning and deal risk
+
+---
+
+### 🎨 UI Refinements
+
+- Removed “Top” from section titles on the main VoC dashboard
+- Updated summary page titles to include “Top 5”
+- Improved chart styling and visual consistency
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
