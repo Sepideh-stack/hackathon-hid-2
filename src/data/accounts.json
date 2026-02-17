@@ -3,30 +3,35 @@
     "id": "acc-001",
     "name": "Nordea Bank",
     "industry": "Finance",
-    "region": "Nordics"
+    "region": "Nordics",
+    "customerDescription": "Nordea is a large Nordic retail and corporate bank modernizing its customer onboarding and risk workflows. The team is evaluating how to unify meeting and customer feedback insights across regions while maintaining strict compliance and security requirements."
   },
   {
     "id": "acc-002",
     "name": "Volvo Group",
     "industry": "Automotive",
-    "region": "Nordics"
+    "region": "Nordics",
+    "customerDescription": "Volvo Group is looking to standardize how field teams capture customer needs and competitive context across business units. They want clearer traceability from call notes to actionable product and sales insights."
   },
   {
     "id": "acc-003",
     "name": "Siemens AG",
     "industry": "Manufacturing",
-    "region": "DACH"
+    "region": "DACH",
+    "customerDescription": "Siemens is exploring scalable ways to analyze recurring themes from customer and partner conversations. The objective is to surface risks, objections, and strategic opportunities faster for complex enterprise deals."
   },
   {
     "id": "acc-004",
     "name": "NHS Digital",
     "industry": "Healthcare",
-    "region": "UK"
+    "region": "UK",
+    "customerDescription": "NHS Digital needs consistent insight extraction from stakeholder meetings to support service improvement initiatives. Privacy, auditability, and stakeholder alignment are central considerations."
   },
   {
     "id": "acc-005",
     "name": "Airbus SE",
     "industry": "Aerospace",
-    "region": "EU"
+    "region": "EU",
+    "customerDescription": "Airbus is assessing how to consolidate voice-of-customer signals from global teams into a single source of truth. They care about competitive positioning, structured follow-ups, and reducing manual reporting overhead."
   }
 ]

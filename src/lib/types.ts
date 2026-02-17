@@ -8,6 +8,7 @@ export interface Account {
   currentStack?: string[];
   painPoints?: string[];
   primaryProductsOfInterest?: string[];
+  customerDescription?: string;
 }
 
 export interface Product {
@@ -122,7 +123,7 @@ export interface ActionItem {
 export interface AggregatedTheme {
   text: string;
   count: number;
-  snippets: { meetingId: string; meetingTitle: string; date: string; snippet: string }[];
+  snippets: { meetingId: string; meetingTitle: string; date: string; snippet: string; who?: string }[];
 }
 
 export interface AggregatedCompetitor {

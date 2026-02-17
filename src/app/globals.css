@@ -41,30 +41,6 @@
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-/* Dark mode is enabled by toggling the `dark` class on <html> */
-.dark {
-  --background: #0b1220;
-  --foreground: #e2e8f0;
-  --card: #0f172a;
-  --card-foreground: #e2e8f0;
-  --muted: #0f1a31;
-  --muted-foreground: #94a3b8;
-  --border: #22314b;
-  --input: #2b3b57;
-
-  --primary: #3b82f6;
-  --primary-foreground: #0b1220;
-  --accent: #a78bfa;
-  --accent-foreground: #0b1220;
-  --ring: #60a5fa;
-  --danger: #f87171;
-  --success: #4ade80;
-  --warning: #fbbf24;
-
-  --muted-hover: color-mix(in oklab, var(--muted) 88%, black);
-
-  --shadow-color: 2 6 23;
-}
 
 @theme inline {
   --color-background: var(--background);
@@ -100,12 +76,12 @@ html {
   color-scheme: light;
 }
 
-html.dark {
-  color-scheme: dark;
-}
-
 body {
-  background: var(--background);
+  background:
+    radial-gradient(900px 600px at 18% -10%, color-mix(in oklab, var(--primary) 12%, transparent), transparent 60%),
+    radial-gradient(700px 520px at 85% 0%, color-mix(in oklab, var(--accent) 12%, transparent), transparent 55%),
+    radial-gradient(900px 680px at 60% 110%, color-mix(in oklab, var(--primary) 10%, transparent), transparent 55%),
+    var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }

@@ -1782,6 +1782,47 @@
           "callDisposition": "Interested"
         }
       }
+    },
+    {
+      "activity_id": "mtg-1abe25c8",
+      "account_id": "ACC-PKI-001",
+      "related_opportunity_id": "OPP-PKI-001",
+      "date": "2026-02-17",
+      "type": "gg",
+      "participants_contact_ids": [],
+      "notes_raw": "ggg",
+      "tags": [
+        "participant:Alex Berg"
+      ],
+      "insights": {
+        "summary": "The transcript provided contains no readable content or meaningful conversation to analyze.",
+        "painPoints": [],
+        "featureRequests": [],
+        "objections": [],
+        "competitors": [],
+        "actionItems": [],
+        "salesforce": {
+          "nextSteps": "",
+          "recommendedStage": "Prospecting",
+          "sentiment": "Neutral",
+          "engagementLevel": "Low",
+          "dealRisk": "High",
+          "dealRiskReason": "No meaningful conversation or engagement captured",
+          "budgetDiscussed": false,
+          "budgetNotes": "",
+          "authorityIdentified": false,
+          "decisionMaker": "",
+          "needValidated": false,
+          "needSummary": "",
+          "timelineDiscussed": false,
+          "timelineNotes": "",
+          "championIdentified": false,
+          "championName": "",
+          "keyTopics": [],
+          "followUpDate": "",
+          "callDisposition": "No Answer"
+        }
+      }
     }
   ]
 }

@@ -12,6 +12,7 @@ function aggregateInsightItems(
     for (const item of items) {
       const key = item.text.toLowerCase();
       const existing = themeMap.get(key);
+      const who = (meeting.participants || []).join(', ');
       if (existing) {
         existing.count++;
         existing.snippets.push({
@@ -19,6 +20,7 @@ function aggregateInsightItems(
           meetingTitle: meeting.title,
           date: meeting.date,
           snippet: item.snippet,
+          who,
         });
       } else {
         themeMap.set(key, {
@@ -29,6 +31,7 @@ function aggregateInsightItems(
             meetingTitle: meeting.title,
             date: meeting.date,
             snippet: item.snippet,
+            who,
           }],
         });
       }

@@ -2,7 +2,9 @@
 
 import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { VocData } from "@/lib/types";
+import { AggregatedTheme, VocData } from "@/lib/types";
+import VocContextGraph from "@/components/VocContextGraph";
+import VocBarTooltip from "@/components/VocBarTooltip";
 import { 
   BarChart, 
   Bar, 
@@ -33,11 +35,24 @@ export default function VocSummaryPage() {
   const COLORS = ['#7c3aed', '#8b5cf6', '#a78bfa', '#c4b5fd', '#ddd6fe', '#ede9fe', '#f3f4f6'];
 
   // Data transformation functions
-  const transformForBarChart = (data: Array<{ text: string; count: number }>) => 
+  const transformForBarChart = (data: Array<{ text: string; count: number }>) =>
     data.slice(0, 5).map(item => ({
+      // show a shortened label in the chart, but keep the original for tooltip lookups
       text: item.text.length > 30 ? item.text.substring(0, 30) + '...' : item.text,
-      count: item.count
+      fullText: item.text,
+      count: item.count,
     }));
+
+  const themeMapFromAgg = (items: AggregatedTheme[]) => {
+    const m = new Map<string, AggregatedTheme>();
+    for (const it of items) m.set(it.text.toLowerCase(), it);
+    return m;
+  };
+
+  const tooltipLabelFormatter = (_label: string, payload: unknown[]) => {
+    const p0 = payload?.[0] as { payload?: { fullText?: string } } | undefined;
+    return p0?.payload?.fullText ?? _label;
+  };
 
   const transformForPieChart = (data: Array<{ name: string; count: number }>) => 
     data.slice(0, 5).map((item, index) => ({
@@ -87,31 +102,19 @@ export default function VocSummaryPage() {
       </div>
       
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-slate-900 dark:text-[color:var(--foreground)] animate-fade-in-up">VoC Strategic Summary</h1>
-        
-        {/* Debug: Display URL parameters */}
-        <div className="mt-4 p-4 bg-slate-100 dark:bg-slate-800 rounded-lg text-sm">
-          <h3 className="font-semibold mb-2">URL Parameters (Debug):</h3>
-          <div className="space-y-1">
-            <p><strong>Product ID:</strong> {productId || "None"}</p>
-            <p><strong>Region:</strong> {region || "None"}</p>
-            <p><strong>Stage:</strong> {stage || "None"}</p>
-            <p><strong>Date From:</strong> {dateFrom || "None"}</p>
-            <p><strong>Date To:</strong> {dateTo || "None"}</p>
-          </div>
-        </div>
+        <h1 className="text-2xl font-bold text-slate-900 animate-fade-in-up">VoC Strategic Summary</h1>
       </div>
 
       {/* Strategic Scenario Section */}
       {stage && (
-        <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl">
-          <h2 className="font-semibold text-blue-900 dark:text-blue-100 mb-2 flex items-center gap-2">
+        <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-xl">
+          <h2 className="font-semibold text-blue-900 mb-2 flex items-center gap-2">
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
             </svg>
             Strategic Scenario - {stage} Stage
           </h2>
-          <p className="text-sm text-blue-800 dark:text-blue-200">
+          <p className="text-sm text-blue-800">
             {stage === "Discovery" ? (
               "Focus on validating core problems and identifying early customer pain signals. The data shows key challenges prospects are discovering about their current solutions, indicating strong problem-market fit validation opportunities."
             ) : stage === "Evaluation" ? (
@@ -123,11 +126,19 @@ export default function VocSummaryPage() {
         </div>
       )}
 
+      <div className="mb-6">
+        <VocContextGraph
+          competitors={vocData.competitors}
+          title="Competitive Context"
+          subtitle="Hover a competitor to see the exact meeting context and quotes."
+        />
+      </div>
+
       {/* Summary grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Pain Points */}
-        <div className="bg-white dark:bg-[color:var(--card)] border border-slate-200 dark:border-[color:var(--border)] rounded-xl p-6 animate-fade-in-up">
-          <h2 className="font-semibold text-slate-900 dark:text-[color:var(--card-foreground)] mb-4 flex items-center gap-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-6 animate-fade-in-up">
+          <h2 className="font-semibold text-slate-900 mb-4 flex items-center gap-2">
             <span className="w-3 h-3 bg-red-500 rounded-full" />
             Top 5 Pain Points
           </h2>
@@ -144,7 +155,10 @@ export default function VocSummaryPage() {
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis type="number" domain={[0, 'dataMax']} />
                   <YAxis dataKey="text" type="category" width={100} />
-                  <Tooltip />
+                  <Tooltip
+                    content={<VocBarTooltip themeMap={themeMapFromAgg(vocData.painPoints)} />}
+                    labelFormatter={tooltipLabelFormatter}
+                  />
                   <Bar dataKey="count" fill="#ef4444" />
                 </BarChart>
               </ResponsiveContainer>
@@ -153,8 +167,8 @@ export default function VocSummaryPage() {
         </div>
 
         {/* Feature Requests */}
-        <div className="bg-white dark:bg-[color:var(--card)] border border-slate-200 dark:border-[color:var(--border)] rounded-xl p-6 animate-fade-in-up [animation-delay:60ms]">
-          <h2 className="font-semibold text-slate-900 dark:text-[color:var(--card-foreground)] mb-4 flex items-center gap-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-6 animate-fade-in-up [animation-delay:60ms]">
+          <h2 className="font-semibold text-slate-900 mb-4 flex items-center gap-2">
             <span className="w-3 h-3 bg-green-500 rounded-full" />
             Top 5 Feature Requests
           </h2>
@@ -171,7 +185,10 @@ export default function VocSummaryPage() {
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis type="number" domain={[0, 'dataMax']} />
                   <YAxis dataKey="text" type="category" width={100} />
-                  <Tooltip />
+                  <Tooltip
+                    content={<VocBarTooltip themeMap={themeMapFromAgg(vocData.featureRequests)} />}
+                    labelFormatter={tooltipLabelFormatter}
+                  />
                   <Bar dataKey="count" fill="#22c55e" />
                 </BarChart>
               </ResponsiveContainer>
@@ -180,8 +197,8 @@ export default function VocSummaryPage() {
         </div>
 
         {/* Objections */}
-        <div className="bg-white dark:bg-[color:var(--card)] border border-slate-200 dark:border-[color:var(--border)] rounded-xl p-6 animate-fade-in-up [animation-delay:120ms]">
-          <h2 className="font-semibold text-slate-900 dark:text-[color:var(--card-foreground)] mb-4 flex items-center gap-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-6 animate-fade-in-up [animation-delay:120ms]">
+          <h2 className="font-semibold text-slate-900 mb-4 flex items-center gap-2">
             <span className="w-3 h-3 bg-amber-500 rounded-full" />
             Top 5 Objections
           </h2>
@@ -198,7 +215,10 @@ export default function VocSummaryPage() {
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis type="number" domain={[0, 'dataMax']} />
                   <YAxis dataKey="text" type="category" width={100} />
-                  <Tooltip />
+                  <Tooltip
+                    content={<VocBarTooltip themeMap={themeMapFromAgg(vocData.objections)} />}
+                    labelFormatter={tooltipLabelFormatter}
+                  />
                   <Bar dataKey="count" fill="#f59e0b" />
                 </BarChart>
               </ResponsiveContainer>
@@ -207,8 +227,8 @@ export default function VocSummaryPage() {
         </div>
 
         {/* Competitors */}
-        <div className="bg-white dark:bg-[color:var(--card)] border border-slate-200 dark:border-[color:var(--border)] rounded-xl p-6 animate-fade-in-up [animation-delay:180ms]">
-          <h2 className="font-semibold text-slate-900 dark:text-[color:var(--card-foreground)] mb-4 flex items-center gap-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-6 animate-fade-in-up [animation-delay:180ms]">
+          <h2 className="font-semibold text-slate-900 mb-4 flex items-center gap-2">
             <span className="w-3 h-3 bg-purple-500 rounded-full" />
             Competitors
           </h2>
