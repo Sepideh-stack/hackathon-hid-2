@@ -28,20 +28,20 @@ export default function Navbar() {
               <div className="flex gap-1">
                 <Link
                   href="/sales"
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                     isSales
-                      ? "bg-blue-50 text-blue-700"
-                      : "text-slate-600 hover:bg-slate-50"
+                      ? "bg-indigo-50 text-indigo-700 shadow-sm ring-1 ring-indigo-200"
+                      : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
                   }`}
                 >
                   Sales View
                 </Link>
                 <Link
                   href="/voc"
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                     isVoc
-                      ? "bg-purple-50 text-purple-700"
-                      : "text-slate-600 hover:bg-slate-50"
+                      ? "bg-violet-50 text-violet-700 shadow-sm ring-1 ring-violet-200"
+                      : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
                   }`}
                 >
                   VoC Dashboard
@@ -53,10 +53,10 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             {!isHome && (
               <div
-                className={`px-3 py-1.5 rounded-full text-xs font-medium ${
+                className={`px-3 py-1.5 rounded-full text-xs font-medium border ${
                   isSales
-                    ? "bg-blue-100 text-blue-700"
-                    : "bg-purple-100 text-purple-700"
+                    ? "bg-indigo-50 text-indigo-700 border-indigo-100"
+                    : "bg-violet-50 text-violet-700 border-violet-100"
                 }`}
               >
                 {isSales

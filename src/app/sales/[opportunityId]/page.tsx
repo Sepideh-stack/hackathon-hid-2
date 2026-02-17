@@ -148,126 +148,160 @@ export default function OpportunityDetailPage() {
   }
 
   return (
-    <div>
-      <div className="mb-6">
-        <Link href="/sales" className="text-sm text-blue-600 hover:text-blue-800 flex items-center gap-1 mb-4 animate-fade-in">
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+      <div className="space-y-4">
+        <Link href="/sales" className="group text-sm text-slate-500 hover:text-indigo-600 flex items-center gap-1 animate-fade-in transition-colors w-fit">
+          <svg className="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
           </svg>
           Back to Opportunities
         </Link>
-        <div className="flex items-start justify-between">
+        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-bold text-slate-900 animate-fade-in-up">{opportunity.name}</h1>
-            <p className="text-slate-500 mt-1 animate-fade-in-up [animation-delay:80ms]">{account?.name} &middot; {opportunity.product} &middot; ${opportunity.value.toLocaleString()}</p>
+            <h1 className="text-3xl font-bold text-slate-900 tracking-tight animate-fade-in-up">{opportunity.name}</h1>
+            <p className="text-lg text-slate-600 mt-2 animate-fade-in-up [animation-delay:80ms] flex items-center gap-2">
+              <span className="font-medium text-slate-900">{account?.name}</span>
+              <span className="text-slate-300">&middot;</span>
+              <span>{opportunity.product}</span>
+              <span className="text-slate-300">&middot;</span>
+              <span className="font-medium text-slate-900">${opportunity.value.toLocaleString()}</span>
+            </p>
           </div>
-          <div className="flex gap-3">
+          <div className="flex gap-3 animate-fade-in-up [animation-delay:120ms]">
             <button
               onClick={() => setShowBriefing(!showBriefing)}
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors active:scale-[0.98]"
+              className="px-4 py-2 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-medium hover:border-indigo-500 hover:text-indigo-600 transition-all shadow-sm active:scale-[0.98]"
             >
               {showBriefing ? "Hide Briefing" : "Prepare for Meeting"}
             </button>
             <Link
               href={`/sales/${opportunityId}/new-meeting`}
-              className="px-4 py-2 bg-slate-900 text-white rounded-lg text-sm font-medium hover:bg-slate-800 transition-colors active:scale-[0.98]"
+              className="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors shadow-sm hover:shadow-md active:scale-[0.98] flex items-center gap-2"
             >
-              + New Meeting
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+              New Meeting
             </Link>
           </div>
         </div>
       </div>
 
       {showBriefing && (
-        <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8 animate-slide-down">
-          <h2 className="text-lg font-semibold text-blue-900 mb-4">Briefing Card</h2>
+        <div className="bg-gradient-to-br from-indigo-50 to-white border border-indigo-100 rounded-2xl p-6 shadow-sm animate-slide-down">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="p-2 bg-indigo-100 rounded-lg">
+              <svg className="w-5 h-5 text-indigo-600" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+              </svg>
+            </div>
+            <h2 className="text-lg font-semibold text-indigo-900">Meeting Briefing</h2>
+          </div>
 
-          <div className="mb-5">
-            <h3 className="text-sm font-semibold text-blue-800 mb-2">Discussion Summary</h3>
-            <p className="text-sm text-blue-900 leading-relaxed">{briefingParagraph}</p>
-            <div className="mt-3 flex flex-wrap gap-2">
+          <div className="mb-6 bg-white/50 rounded-xl p-4 border border-indigo-50">
+            <h3 className="text-sm font-semibold text-indigo-900 mb-2 uppercase tracking-wide">Discussion Summary</h3>
+            <p className="text-slate-700 leading-relaxed">{briefingParagraph}</p>
+            <div className="mt-4 flex flex-wrap gap-2">
               <button
                 type="button"
                 onClick={handleReadOutLoud}
-                className="px-3 py-2 bg-white border border-blue-200 text-blue-700 rounded-lg text-sm font-medium hover:bg-blue-100 transition-colors"
+                className="px-3 py-2 bg-white border border-indigo-200 text-indigo-700 rounded-lg text-sm font-medium hover:bg-indigo-50 transition-colors flex items-center gap-2"
               >
-                Read Out Loud Meeting Briefing
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
+                </svg>
+                Read Out Loud
               </button>
               <button
                 type="button"
                 disabled
-                className="px-3 py-2 bg-white border border-blue-200 text-blue-700 rounded-lg text-sm font-medium opacity-60 cursor-not-allowed"
+                className="px-3 py-2 bg-white border border-slate-200 text-slate-400 rounded-lg text-sm font-medium cursor-not-allowed flex items-center gap-2"
                 title="Coming soon"
               >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" />
+                </svg>
                 Talk with AI
               </button>
             </div>
           </div>
 
           {account?.customerDescription && (
-            <div className="mb-5">
-              <h3 className="text-sm font-semibold text-blue-800 mb-2">Customer Overview</h3>
-              <p className="text-sm text-blue-900 leading-relaxed">
+            <div className="mb-6">
+              <h3 className="text-sm font-semibold text-indigo-900 mb-2 uppercase tracking-wide">Customer Overview</h3>
+              <p className="text-slate-700 leading-relaxed">
                 {account.customerDescription}
               </p>
             </div>
           )}
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <h3 className="text-sm font-semibold text-blue-800 mb-2">Pain Points</h3>
+            <div className="bg-white/50 rounded-xl p-4 border border-indigo-50">
+              <h3 className="text-sm font-semibold text-indigo-900 mb-3 flex items-center gap-2">
+                <span className="w-2 h-2 bg-rose-500 rounded-full" />
+                Pain Points
+              </h3>
               {allPainPoints.length === 0 ? (
-                <p className="text-sm text-blue-600 italic">None recorded yet</p>
+                <p className="text-sm text-slate-500 italic">None recorded yet</p>
               ) : (
-                <ul className="space-y-1">
+                <ul className="space-y-2">
                   {briefingPainPoints.map((p, i) => (
-                    <li key={i} className="text-sm text-blue-900 flex items-start gap-2">
-                      <span className="text-red-500 mt-0.5">&#9679;</span>
+                    <li key={i} className="text-sm text-slate-700 flex items-start gap-2">
+                      <span className="text-rose-400 mt-0.5">•</span>
                       {p.text}
                     </li>
                   ))}
                 </ul>
               )}
             </div>
-            <div>
-              <h3 className="text-sm font-semibold text-blue-800 mb-2">Feature Requests</h3>
+            <div className="bg-white/50 rounded-xl p-4 border border-indigo-50">
+              <h3 className="text-sm font-semibold text-indigo-900 mb-3 flex items-center gap-2">
+                <span className="w-2 h-2 bg-emerald-500 rounded-full" />
+                Feature Requests
+              </h3>
               {allFeatureRequests.length === 0 ? (
-                <p className="text-sm text-blue-600 italic">None recorded yet</p>
+                <p className="text-sm text-slate-500 italic">None recorded yet</p>
               ) : (
-                <ul className="space-y-1">
+                <ul className="space-y-2">
                   {briefingFeatureRequests.map((f, i) => (
-                    <li key={i} className="text-sm text-blue-900 flex items-start gap-2">
-                      <span className="text-green-500 mt-0.5">&#9679;</span>
+                    <li key={i} className="text-sm text-slate-700 flex items-start gap-2">
+                      <span className="text-emerald-400 mt-0.5">•</span>
                       {f.text}
                     </li>
                   ))}
                 </ul>
               )}
             </div>
-            <div>
-              <h3 className="text-sm font-semibold text-blue-800 mb-2">Objections</h3>
+            <div className="bg-white/50 rounded-xl p-4 border border-indigo-50">
+              <h3 className="text-sm font-semibold text-indigo-900 mb-3 flex items-center gap-2">
+                <span className="w-2 h-2 bg-amber-500 rounded-full" />
+                Objections
+              </h3>
               {allObjections.length === 0 ? (
-                <p className="text-sm text-blue-600 italic">None recorded yet</p>
+                <p className="text-sm text-slate-500 italic">None recorded yet</p>
               ) : (
-                <ul className="space-y-1">
+                <ul className="space-y-2">
                   {briefingObjections.map((o, i) => (
-                    <li key={i} className="text-sm text-blue-900 flex items-start gap-2">
-                      <span className="text-amber-500 mt-0.5">&#9679;</span>
+                    <li key={i} className="text-sm text-slate-700 flex items-start gap-2">
+                      <span className="text-amber-400 mt-0.5">•</span>
                       {o.text}
                     </li>
                   ))}
                 </ul>
               )}
             </div>
-            <div>
-              <h3 className="text-sm font-semibold text-blue-800 mb-2">Competitors Mentioned</h3>
+            <div className="bg-white/50 rounded-xl p-4 border border-indigo-50">
+              <h3 className="text-sm font-semibold text-indigo-900 mb-3 flex items-center gap-2">
+                <span className="w-2 h-2 bg-indigo-500 rounded-full" />
+                Competitors Mentioned
+              </h3>
               {allCompetitors.length === 0 ? (
-                <p className="text-sm text-blue-600 italic">None mentioned yet</p>
+                <p className="text-sm text-slate-500 italic">None mentioned yet</p>
               ) : (
-                <ul className="space-y-1">
+                <ul className="space-y-2">
                   {briefingCompetitors.map((c, i) => (
-                    <li key={i} className="text-sm text-blue-900 flex items-start gap-2">
-                      <span className="text-purple-500 mt-0.5">&#9679;</span>
+                    <li key={i} className="text-sm text-slate-700 flex items-start gap-2">
+                      <span className="text-indigo-400 mt-0.5">•</span>
                       <span><strong>{c.name}</strong> &mdash; {c.context}</span>
                     </li>
                   ))}
@@ -275,13 +309,19 @@ export default function OpportunityDetailPage() {
               )}
             </div>
             {openActions.length > 0 && (
-              <div className="md:col-span-2">
-                <h3 className="text-sm font-semibold text-blue-800 mb-2">Open Action Items</h3>
-                <ul className="space-y-1">
+              <div className="md:col-span-2 bg-white/50 rounded-xl p-4 border border-indigo-50">
+                <h3 className="text-sm font-semibold text-indigo-900 mb-3 flex items-center gap-2">
+                  <svg className="w-4 h-4 text-indigo-600" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                  </svg>
+                  Open Action Items
+                </h3>
+                <ul className="space-y-2">
                   {briefingOpenActions.map((a, i) => (
-                    <li key={i} className="text-sm text-blue-900 flex items-center gap-2">
-                      <input type="checkbox" className="rounded" disabled />
-                      {a.text} <span className="text-blue-600">({a.owner})</span>
+                    <li key={i} className="text-sm text-slate-700 flex items-center gap-2">
+                      <input type="checkbox" className="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" disabled />
+                      <span>{a.text}</span>
+                      <span className="text-xs font-medium px-2 py-0.5 bg-indigo-50 text-indigo-700 rounded-full">{a.owner}</span>
                     </li>
                   ))}
                 </ul>
@@ -291,28 +331,40 @@ export default function OpportunityDetailPage() {
         </div>
       )}
 
-      <h2 className="text-lg font-semibold text-slate-900 mb-4">Meeting Timeline</h2>
+      <div className="flex items-center gap-3 mb-4">
+        <h2 className="text-xl font-bold text-slate-900">Meeting Timeline</h2>
+        <div className="h-px flex-1 bg-slate-200" />
+      </div>
+      
       {meetings.length === 0 ? (
-        <div className="text-center py-12 bg-white border border-slate-200 rounded-xl animate-fade-in-up">
-          <p className="text-slate-500">No meetings recorded yet.</p>
+        <div className="text-center py-16 bg-white border border-slate-200 rounded-2xl animate-fade-in-up border-dashed">
+          <div className="w-12 h-12 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg className="w-6 h-6 text-slate-400" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+            </svg>
+          </div>
+          <p className="text-slate-500 font-medium">No meetings recorded yet</p>
+          <p className="text-sm text-slate-400 mt-1 mb-4">Start capturing insights from your conversations.</p>
           <Link
             href={`/sales/${opportunityId}/new-meeting`}
-            className="inline-block mt-3 text-sm text-blue-600 hover:text-blue-800"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors shadow-sm"
           >
-            Record your first meeting
+            Record First Meeting
           </Link>
         </div>
       ) : (
-        <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-4 items-start">
-          <MeetingTimelineTree
-            meetings={meetings}
-            selectedMeetingId={effectiveSelectedMeetingId}
-            onSelectMeeting={setSelectedMeetingId}
-          />
+        <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-8 items-start">
+          <div className="sticky top-8">
+            <MeetingTimelineTree
+              meetings={meetings}
+              selectedMeetingId={effectiveSelectedMeetingId}
+              onSelectMeeting={setSelectedMeetingId}
+            />
+          </div>
 
-          <div className="space-y-4">
+          <div className="space-y-6">
           {visibleMeetings.map(meeting => (
-            <div key={meeting.id} className="bg-white border border-slate-200 rounded-xl p-6 animate-fade-in-up">
+            <div key={meeting.id} className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm animate-fade-in-up">
               <div className="flex items-start justify-between mb-3">
                 <div>
                   <h3 className="font-semibold text-slate-900">{meeting.title}</h3>

@@ -1823,6 +1823,166 @@
           "callDisposition": "No Answer"
         }
       }
+    },
+    {
+      "activity_id": "mtg-d4e1e13d",
+      "account_id": "ACC-PIAM-001",
+      "related_opportunity_id": "OPP-PIAM-001",
+      "date": "2026-02-17",
+      "type": "ww",
+      "participants_contact_ids": [],
+      "notes_raw": "Alex (HID): Thanks Amir, thanks Lina. I would like to get concrete on what\na first phase could look like for device identity.\\nAmir: For me it is simple. Customers are\nsending longer and longer security questionnaires. We spend a lot of time explaining\nhow we do certificates and updates.\\nLina: And internally, device certs are still mostly\nmanual. We have scripts, but they are fragile. When something breaks, only one or two\npeople know how to fix it.\\nAlex (HID): So you have both external pressure from\ncustomers and internal fragility.\\nAmir: Exactly. We cannot hire a PKI team. Whatever we \nInternal\ndo needs to be managed and not require a cryptography PhD.\\nLina: At the same time, I\ndo not want a black box. I want APIs and clear hooks into our provisioning pipeline in\nAWS.\\nAlex (HID): Understood. On the technical side, what is the ideal developer\nexperience for you, Lina?\\nLina: We provision a new device, call an API, get a certificate,\nand the device is onboarded. Renewal should be automatic. If a device is compromised,\nwe trigger revocation through another API.\\nAlex (HID): And documentation?\\nLina: We\nneed diagrams and text we can reuse in customer security questionnaires. Right now I\nam writing those from scratch every time.\\nAmir: That is a big time sink.\\nAlex (HID): You\nmentioned DigiCert device trust earlier. What is your impression so far?\\nLina: It looks\nsolid, but feels like part of a bigger enterprise suite. We do not want to spend six months\nintegrating and configuring.\\nAmir: And we cannot ajord a long project that eats\nbandwidth from the dev team.\\nAlex (HID): So time-to-value and simplicity are\nkey.\\nLina: Yes. Also pricing. We need something that scales with device count in a\npredictable way.\\nAlex (HID): If we propose a pilot for one device line, integrate issuance\nand renewal into your existing provisioning flow, give you reusable customer-facing\ndocumentation, and keep the day-to-day work mostly on our side, would that match what you are looking for?\\nAmir: That is the right direction, as long as it does not explode\nour costs when volumes grow.\\nLina: And as long as I can actually read the docs without\nit being a cryptography thesis.\\nAlex (HID): So main requirements are: developer-friendly\nAPIs, managed operations, reusable documentation for security questionnaires,\npredictable pricing that scales with device count, and a short path to pilot.\\nAmir: Yes,\nplus minimal operational overhead.\\nLina: If we can tick those boxes, I am happy to\npilot",
+      "tags": [
+        "participant:Alex Berg"
+      ],
+      "insights": {
+        "summary": "HID discussed a device identity solution pilot with Amir and Lina to address their challenges with security questionnaires and manual certificate management. Both expressed interest in a managed solution with developer-friendly APIs and predictable pricing.",
+        "painPoints": [
+          {
+            "text": "Lengthy security questionnaire responses",
+            "snippet": "Customers are sending longer and longer security questionnaires. We spend a lot of time explaining how we do certificates and updates.",
+            "confidence": 95,
+            "confidenceLabel": "High",
+            "reasoning": "Directly stated by Amir with specific context about time spent explaining certificates and updates.",
+            "improvedText": ""
+          },
+          {
+            "text": "Manual and fragile certificate management",
+            "snippet": "internally, device certs are still mostly manual. We have scripts, but they are fragile. When something breaks, only one or two people know how to fix it.",
+            "confidence": 95,
+            "confidenceLabel": "High",
+            "reasoning": "Explicitly described by Lina with specific details about manual processes and limited expertise.",
+            "improvedText": ""
+          },
+          {
+            "text": "Creating documentation from scratch repeatedly",
+            "snippet": "Right now I am writing those from scratch every time",
+            "confidence": 90,
+            "confidenceLabel": "High",
+            "reasoning": "Directly stated by Lina in response to discussion about documentation needs.",
+            "improvedText": ""
+          },
+          {
+            "text": "Limited PKI expertise",
+            "snippet": "We cannot hire a PKI team. Whatever we do needs to be managed and not require a cryptography PhD.",
+            "confidence": 92,
+            "confidenceLabel": "High",
+            "reasoning": "Explicitly stated by Amir regarding staffing constraints and expertise requirements.",
+            "improvedText": ""
+          }
+        ],
+        "featureRequests": [
+          {
+            "text": "Simple API-driven certificate provisioning",
+            "snippet": "We provision a new device, call an API, get a certificate, and the device is onboarded. Renewal should be automatic.",
+            "confidence": 95,
+            "confidenceLabel": "High",
+            "reasoning": "Lina explicitly described this exact workflow as the ideal developer experience.",
+            "improvedText": ""
+          },
+          {
+            "text": "API for certificate revocation",
+            "snippet": "If a device is compromised, we trigger revocation through another API.",
+            "confidence": 92,
+            "confidenceLabel": "High",
+            "reasoning": "Directly stated by Lina as part of the desired certificate management workflow.",
+            "improvedText": ""
+          },
+          {
+            "text": "Reusable documentation for customer questionnaires",
+            "snippet": "We need diagrams and text we can reuse in customer security questionnaires.",
+            "confidence": 95,
+            "confidenceLabel": "High",
+            "reasoning": "Explicitly requested by Lina when asked about documentation needs.",
+            "improvedText": ""
+          },
+          {
+            "text": "AWS provisioning pipeline integration",
+            "snippet": "I want APIs and clear hooks into our provisioning pipeline in AWS.",
+            "confidence": 88,
+            "confidenceLabel": "High",
+            "reasoning": "Directly stated by Lina as a requirement for avoiding black box solutions.",
+            "improvedText": ""
+          }
+        ],
+        "objections": [
+          {
+            "text": "Concerns about long integration timeline",
+            "snippet": "We do not want to spend six months integrating and configuring.",
+            "confidence": 92,
+            "confidenceLabel": "High",
+            "reasoning": "Explicitly stated by Lina as a concern about DigiCert and reinforced by Amir's bandwidth concerns.",
+            "improvedText": ""
+          },
+          {
+            "text": "Worries about scaling costs",
+            "snippet": "as long as it does not explode our costs when volumes grow.",
+            "confidence": 85,
+            "confidenceLabel": "High",
+            "reasoning": "Directly expressed by Amir as a condition for moving forward with the pilot.",
+            "improvedText": ""
+          }
+        ],
+        "competitors": [
+          {
+            "name": "DigiCert",
+            "context": "Being evaluated as alternative solution but seen as complex",
+            "snippet": "It looks solid, but feels like part of a bigger enterprise suite. We do not want to spend six months integrating and configuring.",
+            "confidence": 95,
+            "confidenceLabel": "High",
+            "reasoning": "Directly mentioned by name with specific evaluation feedback from Lina.",
+            "improvedText": ""
+          }
+        ],
+        "actionItems": [
+          {
+            "text": "Propose pilot for one device line with integration into existing provisioning flow",
+            "owner": "Alex (HID)",
+            "done": false,
+            "confidence": 88,
+            "confidenceLabel": "High",
+            "reasoning": "Alex explicitly proposed this approach and received positive response from both Amir and Lina.",
+            "improvedText": ""
+          },
+          {
+            "text": "Provide reusable customer-facing documentation",
+            "owner": "Alex (HID)",
+            "done": false,
+            "confidence": 85,
+            "confidenceLabel": "High",
+            "reasoning": "Alex included this as part of his proposed solution and it addresses a directly stated need.",
+            "improvedText": ""
+          }
+        ],
+        "salesforce": {
+          "nextSteps": "Prepare pilot proposal for one device line including API integration, managed operations, reusable documentation, and pricing that scales predictably with device count",
+          "recommendedStage": "Discovery",
+          "sentiment": "Positive",
+          "engagementLevel": "High",
+          "dealRisk": "Low",
+          "dealRiskReason": "Strong alignment on requirements and positive response to pilot proposal",
+          "budgetDiscussed": true,
+          "budgetNotes": "Need predictable pricing that scales with device count, concerns about costs exploding with volume growth",
+          "authorityIdentified": true,
+          "decisionMaker": "Amir and Lina appear to be key decision makers",
+          "needValidated": true,
+          "needSummary": "Need managed device certificate solution with simple APIs to reduce manual work and support security questionnaire responses",
+          "timelineDiscussed": false,
+          "timelineNotes": "",
+          "championIdentified": true,
+          "championName": "Lina",
+          "keyTopics": [
+            "device identity",
+            "certificate management",
+            "API integration",
+            "security questionnaires",
+            "pricing",
+            "pilot"
+          ],
+          "followUpDate": "",
+          "callDisposition": "Interested"
+        }
+      }
     }
   ]
 }
