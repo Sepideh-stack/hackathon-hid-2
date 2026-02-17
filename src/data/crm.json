@@ -1516,6 +1516,272 @@
           }
         ]
       }
+    },
+    {
+      "activity_id": "mtg-3e8ac829",
+      "account_id": "ACC-PIAM-001",
+      "related_opportunity_id": "OPP-PIAM-001",
+      "date": "2026-02-17",
+      "type": "MedTech IoT Devices AB",
+      "participants_contact_ids": [],
+      "notes_raw": "\"activity_id\": \"ACT-PKI-004-07\",\n \"account_id\": \"ACC-PKI-004\",\n \"related_opportunity_id\": \"OPP-PKI-004\",\n \"date\": \"2026-02-08\",\n \"type\": \"Recorded solution discussion (transcript)\",\n \"participants_contact_ids\": [\"CON-PKI-004-A\", \"CON-PKI-004-B\"],\n \"notes_raw\": \"Alex (HID): Thanks Amir, thanks Lina. I would like to get concrete on what\na first phase could look like for device identity.\\nAmir: For me it is simple. Customers are\nsending longer and longer security questionnaires. We spend a lot of time explaining\nhow we do certificates and updates.\\nLina: And internally, device certs are still mostly\nmanual. We have scripts, but they are fragile. When something breaks, only one or two\npeople know how to fix it.\\nAlex (HID): So you have both external pressure from\ncustomers and internal fragility.\\nAmir: Exactly. We cannot hire a PKI team. Whatever we\nInternal\ndo needs to be managed and not require a cryptography PhD.\\nLina: At the same time, I\ndo not want a black box. I want APIs and clear hooks into our provisioning pipeline in\nAWS.\\nAlex (HID): Understood. On the technical side, what is the ideal developer\nexperience for you, Lina?\\nLina: We provision a new device, call an API, get a certificate,\nand the device is onboarded. Renewal should be automatic. If a device is compromised,\nwe trigger revocation through another API.\\nAlex (HID): And documentation?\\nLina: We\nneed diagrams and text we can reuse in customer security questionnaires. Right now I\nam writing those from scratch every time.\\nAmir: That is a big time sink.\\nAlex (HID): You\nmentioned DigiCert device trust earlier. What is your impression so far?\\nLina: It looks\nsolid, but feels like part of a bigger enterprise suite. We do not want to spend six months\nintegrating and configuring.\\nAmir: And we cannot ajord a long project that eats\nbandwidth from the dev team.\\nAlex (HID): So time-to-value and simplicity are\nkey.\\nLina: Yes. Also pricing. We need something that scales with device count in a\npredictable way.\\nAlex (HID): If we propose a pilot for one device line, integrate issuance\nand renewal into your existing provisioning flow, give you reusable customer-facing\ndocumentation, and keep the day-to-day work mostly on our side, would that match\nwhat you are looking for?\\nAmir: That is the right direction, as long as it does not explode\nour costs when volumes grow.\\nLina: And as long as I can actually read the docs without\nit being a cryptography thesis.\\nAlex (HID): So main requirements are: developer-friendly\nAPIs, managed operations, reusable documentation for security questionnaires,\npredictable pricing that scales with device count, and a short path to pilot.\\nAmir: Yes,\nplus minimal operational overhead.\\nLina: If we can tick those boxes, I am happy to\npilot.\",\n \"outcome\": \"Consensus on a pilot focused on one device line with API-driven issuance\nand renewal integrated into existing provisioning, strong reusable documentation for\ncustomer questionnaires, and a simple, scalable pricing and operations model.\",",
+      "tags": [
+        "participant:Alex Berg"
+      ],
+      "insights": {
+        "summary": "Customer discussion to define first phase requirements for device identity solution. Both external customer pressure and internal operational challenges are driving the need for a managed PKI solution with developer-friendly APIs and predictable scaling.",
+        "painPoints": [
+          {
+            "text": "Increasing customer security questionnaire burden",
+            "snippet": "Customers are sending longer and longer security questionnaires. We spend a lot of time explaining how we do certificates and updates."
+          },
+          {
+            "text": "Manual and fragile certificate management",
+            "snippet": "internally, device certs are still mostly manual. We have scripts, but they are fragile. When something breaks, only one or two people know how to fix it."
+          },
+          {
+            "text": "Time-consuming documentation creation",
+            "snippet": "Right now I am writing those from scratch every time. That is a big time sink."
+          }
+        ],
+        "featureRequests": [
+          {
+            "text": "Simple API-driven certificate lifecycle",
+            "snippet": "We provision a new device, call an API, get a certificate, and the device is onboarded. Renewal should be automatic. If a device is compromised, we trigger revocation through another API."
+          },
+          {
+            "text": "Integration with AWS provisioning pipeline",
+            "snippet": "I want APIs and clear hooks into our provisioning pipeline in AWS."
+          },
+          {
+            "text": "Reusable documentation for customer questionnaires",
+            "snippet": "We need diagrams and text we can reuse in customer security questionnaires."
+          }
+        ],
+        "objections": [
+          {
+            "text": "Concerns about implementation complexity and timeline",
+            "snippet": "We do not want to spend six months integrating and configuring. And we cannot afford a long project that eats bandwidth from the dev team."
+          },
+          {
+            "text": "Pricing scalability concerns",
+            "snippet": "as long as it does not explode our costs when volumes grow."
+          },
+          {
+            "text": "Documentation complexity concerns",
+            "snippet": "as long as I can actually read the docs without it being a cryptography thesis."
+          }
+        ],
+        "competitors": [
+          {
+            "name": "DigiCert",
+            "context": "Previously evaluated device trust solution but concerns about complexity",
+            "snippet": "DigiCert device trust earlier. What is your impression so far? It looks solid, but feels like part of a bigger enterprise suite."
+          }
+        ],
+        "actionItems": [
+          {
+            "text": "Propose pilot for one device line with API integration",
+            "owner": "Alex (HID)",
+            "done": false
+          },
+          {
+            "text": "Provide reusable customer-facing documentation",
+            "owner": "Alex (HID)",
+            "done": false
+          },
+          {
+            "text": "Present predictable scaling pricing model",
+            "owner": "Alex (HID)",
+            "done": false
+          }
+        ],
+        "salesforce": {
+          "nextSteps": "Propose a pilot for one device line with API-driven certificate issuance and renewal, reusable security documentation, and predictable pricing model",
+          "recommendedStage": "Discovery",
+          "sentiment": "Positive",
+          "engagementLevel": "High",
+          "dealRisk": "Low",
+          "dealRiskReason": "Strong alignment on requirements and positive response to proposed pilot approach",
+          "budgetDiscussed": true,
+          "budgetNotes": "Concerned about predictable pricing that scales with device count, want to avoid cost explosion with volume growth",
+          "authorityIdentified": true,
+          "decisionMaker": "Amir and Lina appear to be joint decision makers",
+          "needValidated": true,
+          "needSummary": "Need managed PKI solution to handle customer security questionnaires and replace fragile manual certificate processes",
+          "timelineDiscussed": true,
+          "timelineNotes": "Want short time-to-value, avoid six-month integration projects",
+          "championIdentified": true,
+          "championName": "Lina (technical champion willing to pilot)",
+          "keyTopics": [
+            "device certificates",
+            "API integration",
+            "customer questionnaires",
+            "pricing",
+            "managed operations",
+            "pilot"
+          ],
+          "followUpDate": "",
+          "callDisposition": "Interested"
+        }
+      }
+    },
+    {
+      "activity_id": "mtg-4d70bb52",
+      "account_id": "ACC-PIAM-002",
+      "related_opportunity_id": "OPP-PIAM-002",
+      "date": "2026-02-17",
+      "type": "Meeting Evaluation",
+      "participants_contact_ids": [],
+      "notes_raw": "\"activity_id\": \"ACT-PKI-004-07\",\n \"account_id\": \"ACC-PKI-004\",\n \"related_opportunity_id\": \"OPP-PKI-004\",\n \"date\": \"2026-02-08\",\n \"type\": \"Recorded solution discussion (transcript)\",\n \"participants_contact_ids\": [\"CON-PKI-004-A\", \"CON-PKI-004-B\"],\n \"notes_raw\": \"Alex (HID): Thanks Amir, thanks Lina. I would like to get concrete on what\na first phase could look like for device identity.\\nAmir: For me it is simple. Customers are\nsending longer and longer security questionnaires. We spend a lot of time explaining\nhow we do certificates and updates.\\nLina: And internally, device certs are still mostly\nmanual. We have scripts, but they are fragile. When something breaks, only one or two\npeople know how to fix it.\\nAlex (HID): So you have both external pressure from\ncustomers and internal fragility.\\nAmir: Exactly. We cannot hire a PKI team. Whatever we\nInternal\ndo needs to be managed and not require a cryptography PhD.\\nLina: At the same time, I\ndo not want a black box. I want APIs and clear hooks into our provisioning pipeline in\nAWS.\\nAlex (HID): Understood. On the technical side, what is the ideal developer\nexperience for you, Lina?\\nLina: We provision a new device, call an API, get a certificate,\nand the device is onboarded. Renewal should be automatic. If a device is compromised,\nwe trigger revocation through another API.\\nAlex (HID): And documentation?\\nLina: We\nneed diagrams and text we can reuse in customer security questionnaires. Right now I\nam writing those from scratch every time.\\nAmir: That is a big time sink.\\nAlex (HID): You\nmentioned DigiCert device trust earlier. What is your impression so far?\\nLina: It looks\nsolid, but feels like part of a bigger enterprise suite. We do not want to spend six months\nintegrating and configuring.\\nAmir: And we cannot ajord a long project that eats\nbandwidth from the dev team.\\nAlex (HID): So time-to-value and simplicity are\nkey.\\nLina: Yes. Also pricing. We need something that scales with device count in a\npredictable way.\\nAlex (HID): If we propose a pilot for one device line, integrate issuance\nand renewal into your existing provisioning flow, give you reusable customer-facing\ndocumentation, and keep the day-to-day work mostly on our side, would that match\nwhat you are looking for?\\nAmir: That is the right direction, as long as it does not explode\nour costs when volumes grow.\\nLina: And as long as I can actually read the docs without\nit being a cryptography thesis.\\nAlex (HID): So main requirements are: developer-friendly\nAPIs, managed operations, reusable documentation for security questionnaires,\npredictable pricing that scales with device count, and a short path to pilot.\\nAmir: Yes,\nplus minimal operational overhead.\\nLina: If we can tick those boxes, I am happy to\npilot.\",\n \"outcome\": \"Consensus on a pilot focused on one device line with API-driven issuance\nand renewal integrated into existing provisioning, strong reusable documentation for\ncustomer questionnaires, and a simple, scalable pricing and operations model.\",",
+      "tags": [
+        "participant:Alex Berg"
+      ],
+      "insights": {
+        "summary": "HID discussed a PKI solution pilot with Amir and Lina to address their external customer security questionnaire burden and internal certificate management fragility. The conversation established clear requirements for a developer-friendly, managed solution with predictable pricing and reusable documentation.",
+        "painPoints": [
+          {
+            "text": "Lengthy customer security questionnaires requiring manual explanations",
+            "snippet": "Customers are sending longer and longer security questionnaires. We spend a lot of time explaining how we do certificates and updates.",
+            "confidence": 95,
+            "confidenceLabel": "High",
+            "reasoning": "Directly quoted from Amir with specific description of the problem and impact",
+            "improvedText": ""
+          },
+          {
+            "text": "Fragile manual certificate management with limited expertise",
+            "snippet": "device certs are still mostly manual. We have scripts, but they are fragile. When something breaks, only one or two people know how to fix it.",
+            "confidence": 95,
+            "confidenceLabel": "High",
+            "reasoning": "Explicitly stated by Lina with clear details about the fragility and knowledge gaps",
+            "improvedText": ""
+          },
+          {
+            "text": "Time-consuming custom documentation creation for each customer",
+            "snippet": "Right now I am writing those from scratch every time. That is a big time sink.",
+            "confidence": 90,
+            "confidenceLabel": "High",
+            "reasoning": "Directly stated by Lina and confirmed by Amir as a significant time investment",
+            "improvedText": ""
+          }
+        ],
+        "featureRequests": [
+          {
+            "text": "Simple API-driven certificate lifecycle management",
+            "snippet": "We provision a new device, call an API, get a certificate, and the device is onboarded. Renewal should be automatic. If a device is compromised, we trigger revocation through another API.",
+            "confidence": 92,
+            "confidenceLabel": "High",
+            "reasoning": "Lina explicitly describes the exact developer experience she wants with specific API workflows",
+            "improvedText": ""
+          },
+          {
+            "text": "Clear integration hooks into AWS provisioning pipeline",
+            "snippet": "I want APIs and clear hooks into our provisioning pipeline in AWS.",
+            "confidence": 95,
+            "confidenceLabel": "High",
+            "reasoning": "Directly stated requirement by Lina with specific technology context",
+            "improvedText": ""
+          },
+          {
+            "text": "Reusable documentation for customer security questionnaires",
+            "snippet": "We need diagrams and text we can reuse in customer security questionnaires.",
+            "confidence": 95,
+            "confidenceLabel": "High",
+            "reasoning": "Explicitly requested by Lina to solve the pain point of manual documentation creation",
+            "improvedText": ""
+          }
+        ],
+        "objections": [
+          {
+            "text": "Cannot afford long integration projects that consume dev team bandwidth",
+            "snippet": "we cannot ajord a long project that eats bandwidth from the dev team.",
+            "confidence": 95,
+            "confidenceLabel": "High",
+            "reasoning": "Directly stated concern by Amir about resource constraints and project scope",
+            "improvedText": ""
+          },
+          {
+            "text": "Concerns about cost explosion at scale",
+            "snippet": "as long as it does not explode our costs when volumes grow.",
+            "confidence": 90,
+            "confidenceLabel": "High",
+            "reasoning": "Explicitly stated condition by Amir regarding pricing scalability concerns",
+            "improvedText": ""
+          },
+          {
+            "text": "Documentation must be accessible, not overly technical",
+            "snippet": "as long as I can actually read the docs without it being a cryptography thesis.",
+            "confidence": 88,
+            "confidenceLabel": "High",
+            "reasoning": "Directly quoted concern from Lina about documentation complexity and accessibility",
+            "improvedText": ""
+          }
+        ],
+        "competitors": [
+          {
+            "name": "DigiCert",
+            "context": "Mentioned as alternative being evaluated but seen as overly complex",
+            "snippet": "It looks solid, but feels like part of a bigger enterprise suite. We do not want to spend six months integrating and configuring.",
+            "confidence": 92,
+            "confidenceLabel": "High",
+            "reasoning": "Explicitly mentioned by name with specific feedback about complexity and integration concerns"
+          }
+        ],
+        "actionItems": [
+          {
+            "text": "Propose pilot for one device line with API integration",
+            "owner": "Alex (HID)",
+            "done": false,
+            "confidence": 85,
+            "confidenceLabel": "High",
+            "reasoning": "Alex explicitly proposed this approach and received positive response from both Amir and Lina"
+          },
+          {
+            "text": "Develop reusable customer-facing documentation package",
+            "owner": "Alex (HID)",
+            "done": false,
+            "confidence": 88,
+            "confidenceLabel": "High",
+            "reasoning": "Alex included this in his proposed solution and it directly addresses a stated pain point"
+          },
+          {
+            "text": "Create predictable device-count based pricing proposal",
+            "owner": "Alex (HID)",
+            "done": false,
+            "confidence": 80,
+            "confidenceLabel": "High",
+            "reasoning": "Strongly implied as necessary next step given explicit concerns about pricing scalability"
+          }
+        ],
+        "salesforce": {
+          "nextSteps": "Propose a pilot for one device line with API-driven certificate issuance and renewal, reusable documentation for security questionnaires, and scalable pricing model",
+          "recommendedStage": "Prospecting",
+          "sentiment": "Positive",
+          "engagementLevel": "High",
+          "dealRisk": "Low",
+          "dealRiskReason": "Strong alignment on requirements and positive response to proposed pilot approach",
+          "budgetDiscussed": true,
+          "budgetNotes": "Need predictable pricing that scales with device count without cost explosion at volume",
+          "authorityIdentified": true,
+          "decisionMaker": "Amir and Lina appear to be joint decision makers",
+          "needValidated": true,
+          "needSummary": "External customer security questionnaire burden and internal certificate management operational challenges",
+          "timelineDiscussed": false,
+          "timelineNotes": "",
+          "championIdentified": true,
+          "championName": "Lina (technical champion willing to pilot)",
+          "keyTopics": [
+            "device identity",
+            "PKI management",
+            "API integration",
+            "security questionnaires",
+            "pricing model",
+            "pilot program"
+          ],
+          "followUpDate": "",
+          "callDisposition": "Interested"
+        }
+      }
     }
   ]
 }

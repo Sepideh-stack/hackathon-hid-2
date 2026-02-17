@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { generateVocSummary } from '@/lib/anthropic';
+import { generateVocSummary } from '@/lib/openrouter';
 
 export async function POST(request: NextRequest) {
   try {

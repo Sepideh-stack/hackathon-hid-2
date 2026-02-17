@@ -65,23 +65,58 @@ export interface ExtractedInsights {
   objections: InsightItem[];
   competitors: CompetitorMention[];
   actionItems: ActionItem[];
+
+  // Salesforce-style fields
+  salesforce?: SalesforceFields;
+}
+
+export interface SalesforceFields {
+  nextSteps: string;
+  recommendedStage: string;
+  sentiment: 'Positive' | 'Neutral' | 'Negative' | 'Mixed';
+  engagementLevel: 'High' | 'Medium' | 'Low';
+  dealRisk: 'Low' | 'Medium' | 'High';
+  dealRiskReason: string;
+  budgetDiscussed: boolean;
+  budgetNotes: string;
+  authorityIdentified: boolean;
+  decisionMaker: string;
+  needValidated: boolean;
+  needSummary: string;
+  timelineDiscussed: boolean;
+  timelineNotes: string;
+  championIdentified: boolean;
+  championName: string;
+  keyTopics: string[];
+  followUpDate: string;
+  callDisposition: 'Interested' | 'Follow-up Needed' | 'Not Interested' | 'No Answer' | 'Left Voicemail' | 'Completed';
 }
 
 export interface InsightItem {
   text: string;
   snippet: string;
+  confidence?: number; // 0-100
+  confidenceLabel?: 'High' | 'Medium' | 'Low';
+  reasoning?: string;
+  improvedText?: string;
 }
 
 export interface CompetitorMention {
   name: string;
   context: string;
   snippet: string;
+  confidence?: number;
+  confidenceLabel?: 'High' | 'Medium' | 'Low';
+  reasoning?: string;
 }
 
 export interface ActionItem {
   text: string;
   owner: string;
   done: boolean;
+  confidence?: number;
+  confidenceLabel?: 'High' | 'Medium' | 'Low';
+  reasoning?: string;
 }
 
 export interface AggregatedTheme {

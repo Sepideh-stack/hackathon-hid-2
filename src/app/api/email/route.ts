@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { generateFollowUpEmail } from '@/lib/anthropic';
+import { generateFollowUpEmail } from '@/lib/openrouter';
 
 export async function POST(request: NextRequest) {
   try {
