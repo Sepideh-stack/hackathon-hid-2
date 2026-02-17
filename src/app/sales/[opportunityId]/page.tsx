@@ -258,6 +258,59 @@ export default function OpportunityDetailPage() {
                     </div>
                   )}
 
+                  {meeting.insights.salesforce && (
+                    <div className="mt-3 pt-3 border-t border-slate-100 dark:border-[color:var(--border)]">
+                      <p className="text-xs font-medium text-blue-600 dark:text-blue-400 mb-2 flex items-center gap-1">
+                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z" />
+                        </svg>
+                        Salesforce Fields
+                      </p>
+                      <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs">
+                        <span className="text-slate-600 dark:text-[color:var(--muted-foreground)]">
+                          Stage: <strong className="text-slate-800 dark:text-[color:var(--foreground)]">{meeting.insights.salesforce.recommendedStage}</strong>
+                        </span>
+                        <span className="text-slate-600 dark:text-[color:var(--muted-foreground)]">
+                          Sentiment: <strong className={
+                            meeting.insights.salesforce.sentiment === 'Positive' ? 'text-green-600' :
+                            meeting.insights.salesforce.sentiment === 'Negative' ? 'text-red-600' :
+                            meeting.insights.salesforce.sentiment === 'Mixed' ? 'text-amber-600' : 'text-slate-600'
+                          }>{meeting.insights.salesforce.sentiment}</strong>
+                        </span>
+                        <span className="text-slate-600 dark:text-[color:var(--muted-foreground)]">
+                          Risk: <strong className={
+                            meeting.insights.salesforce.dealRisk === 'Low' ? 'text-green-600' :
+                            meeting.insights.salesforce.dealRisk === 'Medium' ? 'text-amber-600' : 'text-red-600'
+                          }>{meeting.insights.salesforce.dealRisk}</strong>
+                        </span>
+                        <span className="text-slate-600 dark:text-[color:var(--muted-foreground)]">
+                          Disposition: <strong className="text-slate-800 dark:text-[color:var(--foreground)]">{meeting.insights.salesforce.callDisposition}</strong>
+                        </span>
+                      </div>
+                      {meeting.insights.salesforce.nextSteps && (
+                        <p className="text-xs text-slate-600 dark:text-[color:var(--muted-foreground)] mt-1">
+                          <strong>Next Steps:</strong> {meeting.insights.salesforce.nextSteps}
+                        </p>
+                      )}
+                      <div className="flex flex-wrap gap-x-3 gap-y-0.5 mt-1 text-xs text-slate-500 dark:text-[color:var(--muted-foreground)]">
+                        {meeting.insights.salesforce.budgetDiscussed && <span>✓ Budget</span>}
+                        {meeting.insights.salesforce.authorityIdentified && <span>✓ Authority</span>}
+                        {meeting.insights.salesforce.needValidated && <span>✓ Need</span>}
+                        {meeting.insights.salesforce.timelineDiscussed && <span>✓ Timeline</span>}
+                        {meeting.insights.salesforce.championIdentified && (
+                          <span>✓ Champion: {meeting.insights.salesforce.championName}</span>
+                        )}
+                      </div>
+                      {(meeting.insights.salesforce.keyTopics || []).length > 0 && (
+                        <div className="flex flex-wrap gap-1 mt-1.5">
+                          {meeting.insights.salesforce.keyTopics.map((t, i) => (
+                            <span key={i} className="px-1.5 py-0.5 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 rounded text-[10px] font-medium">{t}</span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )}
+
                   {emailContent && emailMeetingId === meeting.id && (
                     <div className="mt-4 p-4 bg-slate-50 dark:bg-[color:var(--muted)] border border-slate-200 dark:border-[color:var(--border)] rounded-lg animate-slide-down">
                       <div className="flex items-center justify-between mb-2">
